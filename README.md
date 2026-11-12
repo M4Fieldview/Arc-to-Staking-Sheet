@@ -1,6 +1,6 @@
-# Arc Data Export to Spreadsheet
+# Arc-to-Staking-Sheet
 
-Fills in the **S (staked)** columns of an irrigation PM's hole-summary sheet straight from the project's ArcGIS staking web map, so PMs no longer copy counts over from the dashboard or attribute table by hand.
+**Sync Arc to Staking Sheet:** Fills in the **S (staked)** columns of an irrigation PM's hole-summary sheet straight from the project's ArcGIS staking web map, so PMs no longer copy counts over from the dashboard or attribute table by hand.
 
 **Pilot project:** 2603 Kettle Forge.
 
