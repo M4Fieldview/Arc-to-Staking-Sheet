@@ -1,0 +1,18 @@
+# Project data - keep client quantities and web map dumps out of the repo
+*.xlsx
+*.xlsm
+!test-data/**/*.xlsx
+webmap_backup_*.json
+
+# Excel / Office temp files
+~$*
+
+# Python / notebooks
+__pycache__/
+.ipynb_checkpoints/
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
