@@ -104,6 +104,7 @@ function matches(entry, attrsLower) {
  */
 export function tally(mapping, rowsByLayer) {
   const counts = {};
+  const placed = [];     // every group that was counted: { layer, col, label, hole, attrs, n }
   const noHole = [];     // matched a column, but HoleNo blank
   const unmatched = [];  // in a mapped layer, but no column claimed it
   for (const [layer, rows] of Object.entries(rowsByLayer)) {
@@ -120,9 +121,10 @@ export function tally(mapping, rowsByLayer) {
       if (!hole) { noHole.push({ layer, col: entry.col, label: entry.label, attrs, n }); continue; }
       counts[entry.col] ??= {};
       counts[entry.col][hole.toUpperCase()] = (counts[entry.col][hole.toUpperCase()] || 0) + n;
+      placed.push({ layer, col: entry.col, label: entry.label, hole: hole.toUpperCase(), attrs, n });
     }
   }
-  return { counts, noHole, unmatched };
+  return { counts, placed, noHole, unmatched };
 }
 
 /** Finds the header row ("Area" / D / S) and the area rows on the sheet. */

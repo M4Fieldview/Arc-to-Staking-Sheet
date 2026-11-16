@@ -22,7 +22,76 @@ function splitRef(ref) {
   return { col: m[1], row: Number(m[2]) };
 }
 
-const parseXml = (text) => new DOMParser().parseFromString(text, "application/xml");
+// ---------- tiny formula evaluator (enough for +/- and SUM totals) ----------
+class Unsupported extends Error {}
+const REF_RE = /(^|[^A-Za-z0-9_!'.$])(\$?)([A-Z]{1,3})(\$?)(\d+)(?![\d(A-Za-z_])/g;
+
+/** Moves relative references in a shared formula by (dc, dr), like Excel's fill-down. */
+function shiftRefs(text, dc, dr) {
+  return text.replace(REF_RE, (all, pre, cAbs, col, rAbs, row) =>
+    pre + cAbs + (cAbs ? col : numToCol(colToNum(col) + dc)) + rAbs + (rAbs ? row : Number(row) + dr));
+}
+
+function evaluateFormula(text, cellNum) {
+  if (/[!'"\[{]/.test(text)) throw new Unsupported("refers to another tab or uses text");
+  const tokens = text.replace(/\s+/g, "").match(/\$?[A-Z]{1,3}\$?\d+(?::\$?[A-Z]{1,3}\$?\d+)?|[A-Z]+(?=\()|\d+(?:\.\d+)?(?:E[+-]?\d+)?|[-+*/(),]/gi);
+  if (!tokens || tokens.join("") !== text.replace(/\s+/g, "")) throw new Unsupported("unknown syntax");
+  let i = 0;
+  const peek = () => tokens[i];
+  const next = () => tokens[i++];
+  const clean = (r) => r.replace(/\$/g, "").toUpperCase();
+  const rangeRefs = (a, b) => {
+    const A = splitRef(clean(a)), B = splitRef(clean(b));
+    const out = [];
+    for (let r = Math.min(A.row, B.row); r <= Math.max(A.row, B.row); r++)
+      for (let c = Math.min(colToNum(A.col), colToNum(B.col)); c <= Math.max(colToNum(A.col), colToNum(B.col)); c++)
+        out.push(numToCol(c) + r);
+    return out;
+  };
+  function expr() {
+    let v = term();
+    while (peek() === "+" || peek() === "-") v = next() === "+" ? v + term() : v - term();
+    return v;
+  }
+  function term() {
+    let v = factor();
+    while (peek() === "*" || peek() === "/") {
+      const op = next(), r = factor();
+      if (op === "/" && r === 0) throw new Unsupported("divide by zero");
+      v = op === "*" ? v * r : v / r;
+    }
+    return v;
+  }
+  function factor() {
+    const t = next();
+    if (t === undefined) throw new Unsupported("unexpected end");
+    if (t === "+") return factor();
+    if (t === "-") return -factor();
+    if (t === "(") { const v = expr(); if (next() !== ")") throw new Unsupported("missing )"); return v; }
+    if (/^\d/.test(t)) return Number(t);
+    if (/^[A-Z]+$/i.test(t) && peek() === "(") {
+      if (t.toUpperCase() !== "SUM") throw new Unsupported(`function ${t}`);
+      next();
+      let sum = 0;
+      while (peek() !== ")") {
+        const a = peek();
+        if (a && a.includes(":")) { next(); const [x, y] = a.split(":"); for (const r of rangeRefs(x, y)) sum += cellNum(r, true); }
+        else sum += expr();
+        if (peek() === ",") next(); else if (peek() !== ")") throw new Unsupported("bad SUM arguments");
+      }
+      next();
+      return sum;
+    }
+    if (t.includes(":")) throw new Unsupported("range outside SUM");
+    if (/^\$?[A-Z]{1,3}\$?\d+$/i.test(t)) return cellNum(clean(t), false);
+    throw new Unsupported(`token ${t}`);
+  }
+  const v = expr();
+  if (i !== tokens.length) throw new Unsupported("trailing tokens");
+  return v;
+}
+
+const parseXml = (text) =>new DOMParser().parseFromString(text, "application/xml");
 // Browsers keep the original <?xml ...?> line when serializing a parsed document. Only add one if it's missing.
 const serialize = (doc) => {
   const s = new XMLSerializer().serializeToString(doc);
@@ -169,6 +238,83 @@ class Sheet {
   hasFormula(ref) {
     const c = this._cell(ref, false);
     return !!(c && children(c, "f").length);
+  }
+
+  /**
+   * Recomputes the saved results of this tab's formulas after we've changed cells.
+   * Excel's Protected View (always used for downloaded files) shows saved results without recalculating,
+   * so they must already be right. Handles the formulas these sheets use: cell refs, numbers,
+   * + - * / ( ), and SUM over ranges. Anything else (other tabs, other functions) is left as is;
+   * Excel recalculates everything anyway once editing is enabled (fullCalcOnLoad).
+   * Returns { updated, skipped }.
+   */
+  recalc() {
+    const formulas = new Map();   // ref -> formula text
+    const masters = new Map();    // shared formula id -> { text, col, row }
+    const cells = [];
+    for (const row of children(this.sheetData, "row")) {
+      for (const c of children(row, "c")) {
+        const f = children(c, "f")[0];
+        if (f) cells.push([c.getAttribute("r"), f]);
+      }
+    }
+    for (const [ref, f] of cells) {
+      if (f.getAttribute("t") === "shared" && f.textContent.trim()) {
+        const { col, row } = splitRef(ref);
+        masters.set(f.getAttribute("si"), { text: f.textContent, col: colToNum(col), row });
+      }
+    }
+    for (const [ref, f] of cells) {
+      const t = f.getAttribute("t");
+      if (t === "array" || t === "dataTable") continue;
+      let text = f.textContent.trim();
+      if (!text && t === "shared") {
+        const m = masters.get(f.getAttribute("si"));
+        if (!m) continue;
+        const { col, row } = splitRef(ref);
+        text = shiftRefs(m.text, colToNum(col) - m.col, row - m.row);
+      }
+      if (text) formulas.set(ref, text);
+    }
+
+    const memo = new Map();
+    const evaluating = new Set();
+    const cellNum = (ref, inSum) => {
+      if (formulas.has(ref)) return evalRef(ref);
+      const v = this.value(ref);
+      if (v === null || v === "") return 0;
+      if (typeof v === "number") return v;
+      if (inSum) return 0;               // SUM skips text, like Excel
+      throw new Unsupported(`text in ${ref}`);
+    };
+    const evalRef = (ref) => {
+      if (memo.has(ref)) return memo.get(ref);
+      if (evaluating.has(ref)) throw new Unsupported("circular reference");
+      evaluating.add(ref);
+      try {
+        const val = evaluateFormula(formulas.get(ref), cellNum);
+        memo.set(ref, val);
+        return val;
+      } finally { evaluating.delete(ref); }
+    };
+
+    let updated = 0, skipped = 0;
+    for (const ref of formulas.keys()) {
+      let val;
+      try { val = evalRef(ref); } catch (e) { if (e instanceof Unsupported) { skipped++; continue; } throw e; }
+      if (!Number.isFinite(val)) { skipped++; continue; }
+      const c = this._cell(ref, false);
+      let v = children(c, "v")[0];
+      if (!v) { v = this.doc.createElementNS(NS, "v"); c.appendChild(v); }
+      const text = String(Math.round(val * 1e10) / 1e10);
+      if (v.textContent !== text || c.hasAttribute("t")) {
+        v.textContent = text;
+        c.removeAttribute("t");
+        this.dirty = true;
+        updated++;
+      }
+    }
+    return { updated, skipped };
   }
 
   /** Writes a number, keeping the cell's style (or borrowing styleFromRef's style for a brand-new cell). */

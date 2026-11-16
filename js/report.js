@@ -1,8 +1,8 @@
 // Renders the after-sync summary: what went where, and anything that couldn't be placed.
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const idText = (o) => !o || !o.total ? "" :
-  ` <strong>${o.field}${o.total === 1 ? "" : "s"} ${o.ids.join(", ")}${o.total > o.ids.length ? ` +${o.total - o.ids.length} more` : ""}</strong>`;
-const attrText =(a) => Object.entries(a).filter(([k]) => k !== "HoleNo").map(([k, v]) => `${k} ${v ?? "blank"}`).join(", ") || "no attributes";
+  `: <strong>${o.field}${o.total === 1 ? "" : "s"} ${o.ids.join(", ")}${o.total > o.ids.length ? ` +${o.total - o.ids.length} more` : ""}</strong>`;
+const attrText = (a) => Object.entries(a).filter(([k]) => k !== "HoleNo").map(([k, v]) => `${k} ${v ?? "blank"}`).join(", ") || "no attributes";
 
 export function renderReport(el, result, extraWarnings = []) {
   const { summary, noHole, unmatched, skippedRows } = result;
@@ -12,12 +12,20 @@ export function renderReport(el, result, extraWarnings = []) {
   if (noHoleTotal) {
     warn.push(`<strong>${noHoleTotal} staked feature${noHoleTotal === 1 ? " has" : "s have"} a blank HoleNo</strong> and ${noHoleTotal === 1 ? "was" : "were"} <strong>not added to the sheet</strong>. ` +
       `Fill in the HoleNo in Field Maps and re-run:<ul>` +
-      noHole.map((x) => `<li>${x.n} × ${esc(x.layer)} (${esc(attrText(x.attrs))}):${idText(x.oids)}. Once ${x.n === 1 ? "it has a hole, it" : "they have a hole, they"} will count under <em>${esc(x.label)}</em>.</li>`).join("") + "</ul>");
+      noHole.map((x) => `<li>${x.n} × ${esc(x.layer)} (${esc(attrText(x.attrs))})${idText(x.oids)}. Once ${x.n === 1 ? "it has a hole, it" : "they have a hole, they"} will count under <em>${esc(x.label)}</em>.</li>`).join("") + "</ul>");
+  }
+  const byCol = {};
+  for (const x of result.noDesign || []) (byCol[x.col] ??= []).push(x);
+  for (const list of Object.values(byCol)) {
+    const total = list.reduce((s, x) => s + x.n, 0);
+    warn.push(`<strong>${total} feature${total === 1 ? " was" : "s were"} counted under <em>${esc(list[0].label)}</em>, but the sheet has no design quantity for that column.</strong> ` +
+      `This usually means a head type or nozzle was entered wrong in the field. These are on the sheet, so check them:<ul>` +
+      list.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.hole)} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
   }
   const unmatchedTotal = unmatched.reduce((s, x) => s + x.n, 0);
   if (unmatchedTotal) {
     warn.push(`<strong>${unmatchedTotal} feature${unmatchedTotal === 1 ? "" : "s"} didn't match any column:</strong><ul>` +
-      unmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))}):${idText(x.oids)}</li>`).join("") + "</ul>");
+      unmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
   }
   for (const s of summary) {
     if (s.skipped) warn.push(`Column ${esc(s.col)} (${esc(s.label)}) was skipped: ${esc(s.skipped)}.`);

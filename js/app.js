@@ -210,7 +210,7 @@ $("btn-sync").onclick = async () => {
     }));
     const result = applyCounts(ctx, rowsByLayer);
     // Look up the object IDs of anything flagged, so PMs can find those points in the map.
-    const flagged = [...result.noHole, ...result.unmatched];
+    const flagged = [...result.noHole, ...result.unmatched, ...result.noDesign];
     if (flagged.length) setStatus("map-status", "Looking up flagged features…");
     await Promise.all(flagged.map(async (x) => {
       try { x.oids = await objectIdsFor(state.session, wm.layers[x.layer], x.attrs); } catch { /* list stays without IDs */ }
