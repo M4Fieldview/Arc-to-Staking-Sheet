@@ -1,0 +1,24 @@
+{
+ "_about": "Made-up counts that hit every rule on the Kettle Forge sheet layout. Not real data.",
+ "Toro Head": [
+  {"HoleNo": "11", "HeadType": "INF34", "Nozzle": "35", "n": 28},
+  {"HoleNo": "05", "HeadType": "INF34", "Nozzle": "35", "n": 3},
+  {"HoleNo": "08", "HeadType": "INF34", "Nozzle": "33", "n": 2},
+  {"HoleNo": null, "HeadType": "INF35", "Nozzle": "35", "n": 1}
+ ],
+ "Hunter Head": [
+  {"HoleNo": "11", "HeadType": "I-20-06 Rotor", "Nozzle": null, "n": 9},
+  {"HoleNo": null, "HeadType": "I-20-06 Rotor", "Nozzle": null, "n": 4}
+ ],
+ "Isolation Valve": [
+  {"HoleNo": "03", "Size": "08\"", "n": 2},
+  {"HoleNo": null, "Size": "08\"", "n": 1}
+ ],
+ "Quick Coupler": [
+  {"HoleNo": "01", "n": 4}
+ ],
+ "Electric Valve": [
+  {"HoleNo": "02", "Size": "1\"", "n": 1},
+  {"HoleNo": "02", "Size": "2\"", "n": 1}
+ ]
+}

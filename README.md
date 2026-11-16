@@ -27,7 +27,13 @@ A hidden **MAPPING** tab in the sheet template tells the tool which layer and fi
 - Each material column counts the features in one layer that match its filter (e.g. Toro Head with `HeadType=INF34`, `Nozzle=33`). "Other Sprinklers" takes every Toro head that no other column claimed.
 - Rows map by name: `HOLE 7` → HoleNo `07`, `SHORT GAME` → `SG`, and `DR`/`CG`/`PG`/`CH` as is. Rows with no matching code (like **ADJ**) are never touched.
 - A count is written only where something is staked. A cell that already held a number is reset to 0 if nothing is staked there now.
-- Anything that can't be placed (blank HoleNo, no matching column, a hole with no row) is listed on the results page instead of being dropped silently.
+- Each column's billing style comes from its D column. **Billed by hole**: design quantities sit on hole rows. **Billed in total**: hole rows are blank/0 and the total sits in a row like ADJ (mainline valves, Hunter temp heads).
+- Flags, each listing OBJECTIDs:
+  - **Blank HoleNo** in a by-hole column: not added to the sheet. In a billed-in-total column the hole doesn't matter, so these are counted in the row holding the design total.
+  - **Staked on a hole with no design there** (by-hole columns): likely a wrong HoleNo or head/nozzle. Never raised for billed-in-total columns.
+  - **Column with no design quantity at all** (e.g. heads landing in "Other Sprinklers").
+  - **No matching column**, and **a hole with no row on the sheet**.
+- The tool also recomputes the tab's +/- and TOTAL formula results before saving, because Excel's Protected View (used for every downloaded file) shows saved results without recalculating.
 
 ## Notes
 - Project spreadsheets and web map backups are git-ignored on purpose, so they never reach the repo. Put sanitized test sheets in `test-data/` if needed.

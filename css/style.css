@@ -50,7 +50,8 @@ table.report .num { text-align: right; font-variant-numeric: tabular-nums; }
 table.report .mono { font-family: ui-monospace, Consolas, monospace; color: var(--muted); }
 table.report tr.muted td { color: var(--muted); }
 table.report td.holes { color: var(--muted); }
-.note { color: var(--muted); font-size: .88rem; }
+.tag { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 4px; font-size: .75rem; color: var(--muted); border: 1px solid var(--line); white-space: nowrap; }
+.note {color: var(--muted); font-size: .88rem; }
 /* Drag-and-drop upload */
 .dropzone { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 22px 16px; border: 2px dashed var(--line); border-radius: 10px; background: var(--bg); cursor: pointer; text-align: center; transition: border-color .15s, background .15s; }
 .dropzone:hover, .dropzone:focus-within { border-color: var(--accent); }
