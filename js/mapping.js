@@ -143,15 +143,18 @@ export function findLayout(sheet) {
     if (!label) continue;
     rows.push({ row: r, label, hole: areaToHole(label) });
   }
-  return { headerRow, areaCol, rows };
+  // The ADJ (adjustments) row: where features with a blank HoleNo are counted.
+  const adjRow = rows.find((a) => !a.hole && /^ADJ/i.test(a.label))?.row ?? null;
+  return { headerRow, areaCol, rows, adjRow };
 }
 
 /**
  * Writes the S column for every mapped material. Returns a per-column summary.
  * A cell gets the count when something was staked there. Empty cells stay empty when nothing
  * was staked; a cell that already held a number is reset to 0 so a re-sync never leaves a stale value.
- * Rows without a hole code (e.g. ADJ) are never touched, with one exception: in a column billed
- * in total, features with a blank HoleNo still count, and they go in the row holding the design total.
+ * Features with a blank HoleNo are counted in the ADJ row's S cell, which the tool owns (it's
+ * rewritten every sync). Without an ADJ row, a billed-in-total column uses the row holding its
+ * design total; otherwise they're left off. Other rows without a hole code are never touched.
  *
  * Column kinds (read from the D column):
  *   "hole"  - design quantities on individual hole rows (billed by hole)
@@ -188,13 +191,15 @@ export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}) {
     const byHole = {};
     const colCounts = counts[m.col] || {};
     const { kind, totalRow } = classifyColumn(sheet, layout, m.col);
-    let unholed = 0;
-    if (kind === "total" && noHoleCounts[m.col]) {
-      unholed = noHoleCounts[m.col];
-      const label = layout.rows.find((a) => a.row === totalRow).label;
-      sheet.setNumber(sCol + totalRow, unholed, m.col + totalRow);
-      byHole[`${label} (no HoleNo)`] = unholed;
-      staked += unholed;
+    const unholed = noHoleCounts[m.col] || 0;
+    const noHoleRow = layout.adjRow ?? (kind === "total" ? totalRow : null);
+    const noHoleLabel = noHoleRow ? layout.rows.find((a) => a.row === noHoleRow).label : null;
+    if (noHoleRow) {
+      const current = sheet.value(sCol + noHoleRow);
+      if (unholed > 0 || (current !== null && current !== "")) {
+        sheet.setNumber(sCol + noHoleRow, unholed, m.col + noHoleRow);
+      }
+      if (unholed) { byHole[`${noHoleLabel} (no HoleNo)`] = unholed; staked += unholed; }
     }
     for (const a of layout.rows) {
       const d = sheet.value(m.col + a.row);
@@ -210,7 +215,7 @@ export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}) {
     }
     const onSheet = new Set(layout.rows.map((a) => a.hole).filter(Boolean));
     const offSheet = Object.entries(colCounts).filter(([h]) => !onSheet.has(h));
-    summary.push({ ...m, sCol, staked, design, byHole, offSheet, kind, unholed });
+    summary.push({ ...m, sCol, staked, design, byHole, offSheet, kind, unholed, noHoleLabel });
   }
   return summary;
 }

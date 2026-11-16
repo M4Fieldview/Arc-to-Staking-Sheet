@@ -29,7 +29,7 @@ A hidden **MAPPING** tab in the sheet template tells the tool which layer and fi
 - A count is written only where something is staked. A cell that already held a number is reset to 0 if nothing is staked there now.
 - Each column's billing style comes from its D column. **Billed by hole**: design quantities sit on hole rows. **Billed in total**: hole rows are blank/0 and the total sits in a row like ADJ (mainline valves, Hunter temp heads).
 - Flags, each listing OBJECTIDs:
-  - **Blank HoleNo** in a by-hole column: not added to the sheet. In a billed-in-total column the hole doesn't matter, so these are counted in the row holding the design total.
+  - **Blank HoleNo**: counted in the **ADJ** row's S cell so the TOTAL always matches what was staked. Flagged unless the column is billed in total, where the hole doesn't matter. The tool owns ADJ's S cells and refills them every sync, so by-hand staked adjustments go there after the final sync.
   - **Staked on a hole with no design there** (by-hole columns): likely a wrong HoleNo or head/nozzle. Never raised for billed-in-total columns.
   - **Column with no design quantity at all** (e.g. heads landing in "Other Sprinklers").
   - **No matching column**, and **a hole with no row on the sheet**.

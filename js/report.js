@@ -8,11 +8,20 @@ export function renderReport(el, result, extraWarnings = []) {
   const { summary, noHole, unmatched, skippedRows } = result;
   const warn = [...extraWarnings];
 
-  const noHoleTotal = noHole.reduce((s, x) => s + x.n, 0);
-  if (noHoleTotal) {
-    warn.push(`<strong>${noHoleTotal} staked feature${noHoleTotal === 1 ? " has" : "s have"} a blank HoleNo</strong> and ${noHoleTotal === 1 ? "was" : "were"} <strong>not added to the sheet</strong>. ` +
+  const plural = (n, one, many) => (n === 1 ? one : many);
+  const counted = noHole.filter((x) => x.countedIn);
+  const dropped = noHole.filter((x) => !x.countedIn);
+  const countedTotal = counted.reduce((s, x) => s + x.n, 0);
+  if (countedTotal) {
+    warn.push(`<strong>${countedTotal} staked feature${plural(countedTotal, " has", "s have")} a blank HoleNo</strong>, so ${plural(countedTotal, "it was", "they were")} counted in the <strong>${esc(counted[0].countedIn)}</strong> row instead of on a hole. ` +
+      `Fill in the HoleNo in Field Maps and re-run to move ${plural(countedTotal, "it", "them")} to the right hole:<ul>` +
+      counted.map((x) => `<li>${x.n} × ${esc(x.layer)} under <em>${esc(x.label)}</em> (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+  }
+  const droppedTotal = dropped.reduce((s, x) => s + x.n, 0);
+  if (droppedTotal) {
+    warn.push(`<strong>${droppedTotal} staked feature${plural(droppedTotal, " has", "s have")} a blank HoleNo</strong> and ${plural(droppedTotal, "was", "were")} <strong>not added to the sheet</strong> (the sheet has no ADJ row to hold ${plural(droppedTotal, "it", "them")}). ` +
       `Fill in the HoleNo in Field Maps and re-run:<ul>` +
-      noHole.map((x) => `<li>${x.n} × ${esc(x.layer)} (${esc(attrText(x.attrs))})${idText(x.oids)}. Once ${x.n === 1 ? "it has a hole, it" : "they have a hole, they"} will count under <em>${esc(x.label)}</em>.</li>`).join("") + "</ul>");
+      dropped.map((x) => `<li>${x.n} × ${esc(x.layer)} under <em>${esc(x.label)}</em> (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
   }
   const byCol = {};
   for (const x of result.noDesign || []) (byCol[x.col] ??= []).push(x);
@@ -51,5 +60,5 @@ export function renderReport(el, result, extraWarnings = []) {
   el.innerHTML =
     (warn.length ? `<div class="warn"><h3>Check these</h3>${warn.map((w) => `<div class="warn-item">${w}</div>`).join("")}</div>` : "") +
     `<table class="report"><thead><tr><th>S col</th><th>Material</th><th class="num">Staked</th><th class="num">Design</th><th class="num">%</th><th>By hole</th></tr></thead><tbody>${rows}</tbody></table>` +
-    (skippedRows.length ? `<p class="note">Rows without a hole number (${skippedRows.map(esc).join(", ")}) are left alone, except that in “billed in total” columns, features with a blank HoleNo are counted in the row that holds the design total.</p>` : "");
+    (skippedRows.length ? `<p class="note">Features with a blank HoleNo are counted in the ADJ row's S cells, which are refilled on every sync, so make any by-hand staked adjustments there after your final sync. Other rows without a hole number (${skippedRows.filter((r) => !/^ADJ/i.test(r)).map(esc).join(", ") || "none"}) are left alone.</p>` : "");
 }

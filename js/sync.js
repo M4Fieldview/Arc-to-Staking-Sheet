@@ -24,14 +24,16 @@ export function applyCounts(ctx, rowsByLayer) {
   const kinds = {};
   for (const m of mapping) kinds[m.col] ??= classifyColumn(sheet, layout, m.col).kind;
 
-  // In a column billed in total, the hole doesn't matter: blank-HoleNo features still count.
+  // Blank-HoleNo features are counted in the ADJ row so the TOTAL matches what was staked.
   const noHoleCounts = {};
-  const noHole = [];
-  for (const x of allNoHole) {
-    if (kinds[x.col] === "total") noHoleCounts[x.col] = (noHoleCounts[x.col] || 0) + x.n;
-    else noHole.push(x);
-  }
+  for (const x of allNoHole) noHoleCounts[x.col] = (noHoleCounts[x.col] || 0) + x.n;
   const summary = writeStaked(sheet, layout, mapping, counts, noHoleCounts);
+  // Flag them, except in billed-in-total columns where the hole doesn't matter. `countedIn` says
+  // which row they went to (null = no row to put them in, so they're not on the sheet).
+  const where = Object.fromEntries(summary.map((s) => [s.col, s.noHoleLabel ?? null]));
+  const noHole = allNoHole
+    .map((x) => ({ ...x, countedIn: where[x.col] ?? null }))
+    .filter((x) => kinds[x.col] !== "total" || !x.countedIn);
 
   // Staked features in a column the design doesn't call for at all: usually a collection mistake
   // (e.g. a wrong nozzle sending heads to "Other Sprinklers").
