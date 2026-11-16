@@ -109,3 +109,22 @@ export async function groupedCounts(session, layerUrl, fields) {
     return row;
   });
 }
+
+/**
+ * Object IDs of the features in one grouped row (exact attribute match, blanks included),
+ * so a PM can find a flagged point in the map. Returns up to `limit` IDs plus the total.
+ */
+export async function objectIdsFor(session, layerUrl, attrs, limit = 25) {
+  const info = await req(session, layerUrl);
+  const actual = {};
+  for (const f of info.fields || []) actual[f.name.toLowerCase()] = f.name;
+  const clauses = Object.entries(attrs).map(([k, v]) => {
+    const name = actual[k.toLowerCase()] || k;
+    if (v === null || v === undefined) return `${name} IS NULL`;
+    return typeof v === "number" ? `${name} = ${v}` : `${name} = '${String(v).replace(/'/g, "''")}'`;
+  });
+  const res = await req(session, `${layerUrl}/query`, { where: clauses.join(" AND ") || "1=1", returnIdsOnly: true });
+  if (res.error) throw new Error(res.error.message || "query failed");
+  const ids = (res.objectIds || []).sort((a, b) => a - b);
+  return { ids: ids.slice(0, limit), total: ids.length, field: res.objectIdFieldName || info.objectIdField || "OBJECTID" };
+}

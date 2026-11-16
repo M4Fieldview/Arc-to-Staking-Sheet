@@ -48,6 +48,10 @@
       }
       m = /^fake:\/\/(.+?)(\/query)?$/.exec(url);
       if (m && !m[2]) return { name: m[1], objectIdField: "OBJECTID", fields: fields(m[1]) };
+      if (m && params.returnIdsOnly) {
+        // Fake IDs: the fixture has counts only. Kettle Forge's real blank-HoleNo Toro head is 209.
+        return { objectIdFieldName: "OBJECTID", objectIds: /HoleNo IS NULL/.test(params.where) ? [209] : [9001, 9002] };
+      }
       if (m) {
         const group = params.groupByFieldsForStatistics.split(",");
         const acc = new Map();
