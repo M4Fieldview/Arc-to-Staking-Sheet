@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI Test (fake ArcGIS)</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+<p style="background:#fff3c4;color:#222;margin:0;padding:6px 16px;font:13px system-ui">
+  UI test mode: ArcGIS is faked (pretend sign-in, sample web maps, counts from test/kettle-forge-fixture.json). Nothing is sent to ArcGIS.
+</p>
+<div id="app"></div>
+<script type="module">
+  // ---- Fake ArcGIS: same surface the app uses from arcgis-rest-js ----
+  const fixture = await (await fetch("kettle-forge-fixture.json")).json();
+  const MAPS = [
+    ["0b71d91d79d146a98775d056d9492779", "2603 Kettle Forge Staking"],
+    ["aaaa1111bbbb2222cccc3333dddd4444", "2603 Kettle Forge As Builts"],
+    ["eb7c7d889efd4407a96e8f180d28d63e", "2654 Sahalee Staking"],
+    ["08c916b8b0d441138da407602c1cd40c", "2652 Lonnie Poole GC Staking"],
+    ["ba1852ffe5ef41eaa31268163b9022e7", "2646 Overlook Golf Course Staking"],
+  ].map(([id, title], i) => ({ id, title, type: "Web Map", owner: "Landscapes_Unlimited", modified: Date.now() - i * 864e5 * 3 }));
+  const LAYERS = ["Toro Head", "Hunter Head", "Quick Coupler", "Electric Valve", "Isolation Valve", "Lateral Valve", "Drain Valve", "Air Relief Valve"];
+  const fields = (layer) => ["OBJECTID", "HoleNo", "HeadType", "Nozzle", "Size"].map((name) => ({ name, type: name === "OBJECTID" ? "esriFieldTypeOID" : "esriFieldTypeString" }));
+  const fakeSession = { username: "test_pm", tokenExpires: new Date(Date.now() + 36e5), getUser: async () => ({ username: "test_pm", orgId: "ORG", favGroupId: "FAV" }), serialize: () => "{}" };
+
+  window.APP_CONFIG = { clientId: "TEST", portal: "https://example.maps.arcgis.com/sharing/rest" };
+  window.__requests = [];
+  window.arcgisRest = {
+    ArcGISIdentityManager: { deserialize: () => fakeSession, beginOAuth2: async () => fakeSession },
+    async request(url, { params = {} } = {}) {
+      window.__requests.push({ url, params });
+      await new Promise((r) => setTimeout(r, 150));
+      if (url.endsWith("/search")) {
+        const q = params.q.toLowerCase();
+        const words = (/^\(([^)]*)\)/.exec(q)?.[1] || "").split(/\s+/).filter(Boolean);
+        const results = MAPS.filter((m) => (!q.includes("title:staking") || /staking/i.test(m.title)) &&
+          words.every((w) => m.title.toLowerCase().includes(w)) && !q.includes("group:fav"));
+        return { results, total: results.length, nextStart: -1 };
+      }
+      let m = /content\/items\/(\w+)(\/data)?$/.exec(url);
+      if (m) {
+        const map = MAPS.find((x) => x.id === m[1]);
+        if (!map) throw new Error("Item does not exist or is inaccessible.");
+        return m[2] ? { operationalLayers: LAYERS.map((t) => ({ title: t, layerType: "ArcGISFeatureLayer", url: "fake://" + t })) } : map;
+      }
+      m = /^fake:\/\/(.+?)(\/query)?$/.exec(url);
+      if (m && !m[2]) return { name: m[1], objectIdField: "OBJECTID", fields: fields(m[1]) };
+      if (m) {
+        const group = params.groupByFieldsForStatistics.split(",");
+        const acc = new Map();
+        for (const r of fixture[m[1]] || []) {
+          const key = group.map((g) => r[g] ?? null), k = JSON.stringify(key);
+          if (!acc.has(k)) acc.set(k, { attributes: { ...Object.fromEntries(group.map((g, i) => [g, key[i]])), n: 0 } });
+          acc.get(k).attributes.n += r.n;
+        }
+        return { features: [...acc.values()] };
+      }
+      throw new Error("fake ArcGIS: no route for " + url);
+    },
+  };
+
+  // Reuse the real page markup, then start the real app code.
+  const html = await (await fetch("../index.html")).text();
+  document.getElementById("app").innerHTML = new DOMParser().parseFromString(html, "text/html").querySelector("main").outerHTML;
+  await import("../js/app.js");
+</script>
+</body>
+</html>

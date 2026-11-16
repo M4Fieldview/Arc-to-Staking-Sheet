@@ -27,15 +27,36 @@
 
   <section class="step" id="step-file">
     <h2><span class="n"><span>2</span></span> Upload your hole summary sheet</h2>
-    <input type="file" id="file" accept=".xlsx">
-    <div class="status" id="file-status">Use your project's sheet with the D (design) quantities filled in.</div>
+    <label class="dropzone" id="dropzone">
+      <input type="file" id="file" accept=".xlsx">
+      <span class="dz-main" id="dz-main">Drag your sheet here, or <u>click to browse</u></span>
+      <span class="dz-sub">Your project's .xlsx with the D (design) quantities filled in</span>
+    </label>
+    <div class="status" id="file-status"></div>
   </section>
 
   <section class="step disabled" id="step-map">
     <h2><span class="n"><span>3</span></span> Pick the staking web map</h2>
-    <div class="row">
-      <input type="text" id="webmap" placeholder="Paste the web map link or item ID">
-      <button id="btn-sync">Fill in staked counts</button>
+    <div class="picker">
+      <div class="picker-tabs" role="tablist">
+        <button class="tab active" data-scope="org" role="tab">My Organization</button>
+        <button class="tab" data-scope="mine" role="tab">My Content</button>
+        <button class="tab" data-scope="favorites" role="tab">My Favorites</button>
+      </div>
+      <div class="row picker-search">
+        <input type="text" id="map-search" placeholder="Search web maps by name or project number" autocomplete="off">
+        <label class="check"><input type="checkbox" id="staking-only" checked> Staking maps only</label>
+      </div>
+      <ul class="map-list" id="map-list" aria-live="polite"></ul>
+      <button class="secondary small" id="load-more" hidden>Load more</button>
+      <details class="paste">
+        <summary>Or paste a web map link / item ID</summary>
+        <div class="row"><input type="text" id="webmap" placeholder="https://…/home/item.html?id=…"><button class="secondary" id="btn-use-link">Use this map</button></div>
+      </details>
+    </div>
+    <div class="selected" id="selected" hidden></div>
+    <div class="row sync-row">
+      <button id="btn-sync" disabled>Fill in staked counts</button>
     </div>
     <div class="status" id="map-status"></div>
   </section>

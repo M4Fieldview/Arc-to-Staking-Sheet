@@ -6,7 +6,7 @@
 
 ## How it will work
 1. The PM opens the site and signs in with their ArcGIS account.
-2. They upload their hole-summary sheet (with the **D**/design quantities filled in) and choose the staking web map.
+2. They drag in their hole-summary sheet (with the **D**/design quantities filled in) and pick the staking web map from a searchable list (My Organization / My Content / My Favorites). The search starts from the project number in the file name.
 3. The page counts staked features by `HoleNo` for each material column and writes them into the **S** columns. Formulas and formatting are kept.
 4. The PM downloads the filled-in sheet, along with a short report of points that couldn't be placed (e.g. blank `HoleNo`).
 
@@ -19,7 +19,7 @@ A hidden **MAPPING** tab in the sheet template tells the tool which layer and fi
 | `config.js` | The ArcGIS OAuth client ID and org portal URL. |
 | `js/mapping.js` | The standard column mapping (layer + filter for each material) and the hole-row rules. |
 | `js/xlsx.js` | Edits only the S cells inside the .xlsx and leaves styles, merges, formulas and other tabs untouched. Excel recalculates on open. |
-| `test/` | Test harness: runs the fill step with saved counts (`kettle-forge-fixture.json`) instead of a live sign-in. |
+| `test/` | `index.html` runs the fill step with saved counts (`kettle-forge-fixture.json`). `ui.html` runs the whole real page against a fake ArcGIS (pretend sign-in, sample maps), so the UI can be clicked through without signing in. |
 | `tools/dev_server.py` | Local server for testing (`python tools/dev_server.py`, then open http://localhost:8765). |
 | `Standardize_HoleNo.ipynb` | Brings older web maps up to the current template: adds a `HoleNo` field and the standard dropdown (`01–18, CH, SG, PG, CG, DR`) to every template layer, and adds it to the Field Maps forms. Run it with `DRY_RUN = True` first. |
 

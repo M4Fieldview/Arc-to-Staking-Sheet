@@ -31,6 +31,32 @@ export function signOut() {
 const req = (session, url, params = {}) =>
   arcgisRest.request(url, { authentication: session, httpMethod: "GET", params: { f: "json", ...params } });
 
+/** The signed-in user's profile (orgId, favGroupId, username...). */
+export const getUser = (session) => session.getUser();
+
+/** Link to an item's page in ArcGIS Online. */
+export const itemPageUrl = (id) => cfg().portal.replace(/\/sharing\/rest\/?$/, "") + "/home/item.html?id=" + id;
+
+/**
+ * Searches web maps the user can see, like the Dashboards "data source" picker.
+ * scope: "org" | "mine" | "favorites". Returns { items, nextStart } (nextStart -1 = no more pages).
+ */
+export async function searchWebMaps(session, user, { text = "", scope = "org", stakingOnly = false, start = 1 } = {}) {
+  const words = text.replace(/[^\w\s#.-]/g, " ").trim();
+  const parts = [];
+  if (words) parts.push(`(${words})`);
+  if (stakingOnly) parts.push("title:staking");
+  if (scope === "mine") parts.push(`owner:"${user.username}"`);
+  else if (scope === "favorites") parts.push(`group:${user.favGroupId}`);
+  else parts.push(`orgid:${user.orgId}`);
+  const params = { q: parts.join(" AND "), filter: 'type:"Web Map"', num: 40, start };
+  if (!words) Object.assign(params, { sortField: "modified", sortOrder: "desc" });
+  const res = await req(session, `${cfg().portal}/search`, params);
+  const items = (res.results || []).filter((i) => i.type === "Web Map")
+    .map((i) => ({ id: i.id, title: i.title, owner: i.owner, modified: i.modified, snippet: i.snippet }));
+  return { items, nextStart: res.nextStart ?? -1, total: res.total ?? items.length };
+}
+
 /** Accepts a web map item URL, a Map Viewer URL, or a bare 32-character item ID. */
 export function parseItemId(text) {
   const m = /(?:[?&#]|^)(?:id|webmap)=([0-9a-f]{32})/i.exec(text) || /\b([0-9a-f]{32})\b/i.exec(text);
