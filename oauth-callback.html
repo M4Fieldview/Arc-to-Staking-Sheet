@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Signing in…</title>
+  <script src="https://unpkg.com/@esri/arcgis-rest-request@4.11.0/dist/bundled/request.umd.min.js"></script>
+  <script src="config.js"></script>
+</head>
+<body style="font-family: system-ui, sans-serif; padding: 24px;">
+  <p id="msg">Finishing sign-in…</p>
+  <script>
+    try {
+      arcgisRest.ArcGISIdentityManager.completeOAuth2({
+        clientId: window.APP_CONFIG.clientId,
+        portal: window.APP_CONFIG.portal,
+        redirectUri: location.href.split(/[?#]/)[0],
+        popup: true,
+        pkce: true,
+      });
+    } catch (e) {
+      document.getElementById("msg").textContent = "Sign-in failed: " + e.message + ". You can close this window and try again.";
+    }
+  </script>
+</body>
+</html>

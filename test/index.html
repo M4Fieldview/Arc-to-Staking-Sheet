@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sync Test Harness</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Sync test harness</h1>
+    <p>Runs the sheet-filling step with saved feature counts instead of a live ArcGIS sign-in.<br>
+      <code>?xlsx=&lt;path to workbook&gt;&amp;fixture=&lt;counts json&gt;</code>. With tools/dev_server.py running, the output is saved to test-output/.</p>
+  </header>
+  <section class="step"><div class="status" id="status">Running…</div><div class="table-wrap" id="report"></div></section>
+</main>
+<script type="module">
+  import { prepareWorkbook, applyCounts, outputName } from "../js/sync.js";
+  import { fieldsByLayer } from "../js/mapping.js";
+  import { renderReport } from "../js/report.js";
+
+  const p = new URLSearchParams(location.search);
+  const xlsxPath = p.get("xlsx");
+  const fixturePath = p.get("fixture") || "kettle-forge-fixture.json";
+  const status = document.getElementById("status");
+  try {
+    if (!xlsxPath) throw new Error("add ?xlsx=<path to workbook>");
+    const bytes = await (await fetch(xlsxPath)).arrayBuffer();
+    const fixture = await (await fetch(fixturePath)).json();   // { layerTitle: [{HoleNo, ..., n}] }
+    const ctx = await prepareWorkbook(bytes);
+    // Re-group the saved rows by exactly the fields a live query would use.
+    const rowsByLayer = {};
+    const warnings = [];
+    for (const [layer, fields] of Object.entries(fieldsByLayer(ctx.mapping))) {
+      const groups = new Map();   // a layer missing from the fixture = no features staked yet
+      for (const r of fixture[layer] || []) {
+        const key = fields.map((f) => r[f] ?? null);
+        const k = JSON.stringify(key);
+        if (!groups.has(k)) groups.set(k, { ...Object.fromEntries(fields.map((f, i) => [f, key[i]])), n: 0 });
+        groups.get(k).n += r.n;
+      }
+      rowsByLayer[layer] = [...groups.values()];
+    }
+    const result = applyCounts(ctx, rowsByLayer);
+    renderReport(document.getElementById("report"), result, warnings);
+    const blob = await ctx.wb.toBlob();
+    const name = outputName(xlsxPath.split("/").pop());
+    const saved = await fetch(`/__save?name=${encodeURIComponent(name)}`, { method: "POST", body: blob }).then((r) => r.ok ? r.text() : null).catch(() => null);
+    window.__result = { result, saved };
+    status.textContent = saved ? `Saved ${saved}` : "Done (output not saved: dev server not running).";
+  } catch (e) {
+    status.textContent = "Failed: " + e.message;
+    status.classList.add("err");
+    window.__result = { error: e.message, stack: e.stack };
+  }
+</script>
+</body>
+</html>

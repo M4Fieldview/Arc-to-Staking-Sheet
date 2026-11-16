@@ -1,0 +1,85 @@
+{
+ "Basin": [
+  {
+   "n": 2,
+   "HoleNo": "12",
+   "Size": "24\""
+  }
+ ],
+ "Hunter Head": [
+  {
+   "n": 9,
+   "HoleNo": "11",
+   "HeadType": "I-20-06 Rotor",
+   "Nozzle": null
+  },
+  {
+   "n": 9,
+   "HoleNo": "14",
+   "HeadType": "I-20-06 Rotor",
+   "Nozzle": null
+  }
+ ],
+ "Toro Head": [
+  {
+   "n": 2,
+   "HoleNo": "11",
+   "HeadType": "INF34",
+   "Nozzle": "33"
+  },
+  {
+   "n": 28,
+   "HoleNo": "11",
+   "HeadType": "INF34",
+   "Nozzle": "35"
+  },
+  {
+   "n": 41,
+   "HoleNo": "11",
+   "HeadType": "INF35",
+   "Nozzle": "35"
+  },
+  {
+   "n": 26,
+   "HoleNo": "12",
+   "HeadType": "INF34",
+   "Nozzle": "35"
+  },
+  {
+   "n": 7,
+   "HoleNo": "12",
+   "HeadType": "INF35",
+   "Nozzle": "33"
+  },
+  {
+   "n": 31,
+   "HoleNo": "12",
+   "HeadType": "INF35",
+   "Nozzle": "35"
+  },
+  {
+   "n": 42,
+   "HoleNo": "14",
+   "HeadType": "INF34",
+   "Nozzle": "35"
+  },
+  {
+   "n": 3,
+   "HoleNo": "14",
+   "HeadType": "INF35",
+   "Nozzle": "33"
+  },
+  {
+   "n": 26,
+   "HoleNo": "14",
+   "HeadType": "INF35",
+   "Nozzle": "35"
+  },
+  {
+   "n": 1,
+   "HoleNo": null,
+   "HeadType": "INF34",
+   "Nozzle": null
+  }
+ ]
+}

@@ -16,3 +16,7 @@ Thumbs.db
 desktop.ini
 .DS_Store
 .vscode/
+
+# Local test output and tool config
+test-output/
+.claude/

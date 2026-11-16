@@ -15,7 +15,19 @@ A hidden **MAPPING** tab in the sheet template tells the tool which layer and fi
 ## What's in this repo
 | File | Purpose |
 |---|---|
+| `index.html`, `js/`, `css/` | The site. Everything runs in the PM's browser; there's no server. |
+| `config.js` | The ArcGIS OAuth client ID and org portal URL. |
+| `js/mapping.js` | The standard column mapping (layer + filter for each material) and the hole-row rules. |
+| `js/xlsx.js` | Edits only the S cells inside the .xlsx and leaves styles, merges, formulas and other tabs untouched. Excel recalculates on open. |
+| `test/` | Test harness: runs the fill step with saved counts (`kettle-forge-fixture.json`) instead of a live sign-in. |
+| `tools/dev_server.py` | Local server for testing (`python tools/dev_server.py`, then open http://localhost:8765). |
 | `Standardize_HoleNo.ipynb` | Brings older web maps up to the current template: adds a `HoleNo` field and the standard dropdown (`01–18, CH, SG, PG, CG, DR`) to every template layer, and adds it to the Field Maps forms. Run it with `DRY_RUN = True` first. |
+
+## Sync rules
+- Each material column counts the features in one layer that match its filter (e.g. Toro Head with `HeadType=INF34`, `Nozzle=33`). "Other Sprinklers" takes every Toro head that no other column claimed.
+- Rows map by name: `HOLE 7` → HoleNo `07`, `SHORT GAME` → `SG`, and `DR`/`CG`/`PG`/`CH` as is. Rows with no matching code (like **ADJ**) are never touched.
+- A count is written only where something is staked. A cell that already held a number is reset to 0 if nothing is staked there now.
+- Anything that can't be placed (blank HoleNo, no matching column, a hole with no row) is listed on the results page instead of being dropped silently.
 
 ## Notes
 - Project spreadsheets and web map backups are git-ignored on purpose, so they never reach the repo. Put sanitized test sheets in `test-data/` if needed.

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sync Arc to Staking Sheet</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://unpkg.com/@esri/arcgis-rest-request@4.11.0/dist/bundled/request.umd.min.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Sync Arc to Staking Sheet</h1>
+    <p>Fills the <strong>S</strong> (staked) columns of your irrigation hole summary from the project's ArcGIS staking map.</p>
+  </header>
+
+  <section class="step" id="step-signin">
+    <h2><span class="n"><span>1</span></span> Sign in to ArcGIS</h2>
+    <div class="row">
+      <button id="btn-signin">Sign in</button>
+      <button id="btn-signout" class="secondary" hidden>Sign out</button>
+    </div>
+    <div class="status" id="signin-status"></div>
+  </section>
+
+  <section class="step" id="step-file">
+    <h2><span class="n"><span>2</span></span> Upload your hole summary sheet</h2>
+    <input type="file" id="file" accept=".xlsx">
+    <div class="status" id="file-status">Use your project's sheet with the D (design) quantities filled in.</div>
+  </section>
+
+  <section class="step disabled" id="step-map">
+    <h2><span class="n"><span>3</span></span> Pick the staking web map</h2>
+    <div class="row">
+      <input type="text" id="webmap" placeholder="Paste the web map link or item ID">
+      <button id="btn-sync">Fill in staked counts</button>
+    </div>
+    <div class="status" id="map-status"></div>
+  </section>
+
+  <section class="step" id="step-result" hidden>
+    <h2><span class="n"><span>4</span></span> Results</h2>
+    <div class="result-actions">
+      <a class="btn" id="download" download>Download filled sheet</a>
+      <span class="note" id="result-note"></span>
+    </div>
+    <div class="table-wrap" id="report"></div>
+  </section>
+</main>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
