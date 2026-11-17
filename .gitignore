@@ -2,6 +2,7 @@
 *.xlsx
 *.xlsm
 !test-data/**/*.xlsx
+!Hole Summary Template.xlsx
 webmap_backup_*.json
 
 # Excel / Office temp files

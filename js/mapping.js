@@ -174,7 +174,11 @@ export function classifyColumn(sheet, layout, dCol) {
   return { kind: "none" };
 }
 
-export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}) {
+/**
+ * `sheet`/`layout` = the tab the S counts go on (STAKING TOTALS). `design` = the tab whose D column
+ * holds the full design (DESIGN TOTALS); billing style and design totals come from there.
+ */
+export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}, design = { sheet, layout }) {
   const summary = [];
   const seenCols = new Set();
   for (const m of mapping) {
@@ -187,12 +191,13 @@ export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}) {
       summary.push({ ...m, sCol, skipped: `header row shows "${hD}"/"${hS}" instead of D/S` });
       continue;
     }
-    let staked = 0, design = 0;
+    let staked = 0, designQty = 0;
     const byHole = {};
     const colCounts = counts[m.col] || {};
-    const { kind, totalRow } = classifyColumn(sheet, layout, m.col);
+    const { kind, totalRow } = classifyColumn(design.sheet, design.layout, m.col);
     const unholed = noHoleCounts[m.col] || 0;
-    const noHoleRow = layout.adjRow ?? (kind === "total" ? totalRow : null);
+    const totalLabel = design.layout.rows.find((a) => a.row === totalRow)?.label;
+    const noHoleRow = layout.adjRow ?? (kind === "total" ? layout.rows.find((a) => a.label === totalLabel)?.row ?? null : null);
     const noHoleLabel = noHoleRow ? layout.rows.find((a) => a.row === noHoleRow).label : null;
     if (noHoleRow) {
       const current = sheet.value(sCol + noHoleRow);
@@ -201,9 +206,11 @@ export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}) {
       }
       if (unholed) { byHole[`${noHoleLabel} (no HoleNo)`] = unholed; staked += unholed; }
     }
+    for (const a of design.layout.rows) {
+      const d = design.sheet.value(m.col + a.row);
+      if (typeof d === "number") designQty += d;
+    }
     for (const a of layout.rows) {
-      const d = sheet.value(m.col + a.row);
-      if (typeof d === "number") design += d;
       if (!a.hole) continue;
       const n = colCounts[a.hole] || 0;
       const current = sheet.value(sCol + a.row);
@@ -215,7 +222,7 @@ export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}) {
     }
     const onSheet = new Set(layout.rows.map((a) => a.hole).filter(Boolean));
     const offSheet = Object.entries(colCounts).filter(([h]) => !onSheet.has(h));
-    summary.push({ ...m, sCol, staked, design, byHole, offSheet, kind, unholed, noHoleLabel });
+    summary.push({ ...m, sCol, staked, design: designQty, byHole, offSheet, kind, unholed, noHoleLabel });
   }
   return summary;
 }

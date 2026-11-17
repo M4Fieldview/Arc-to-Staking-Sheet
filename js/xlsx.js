@@ -137,6 +137,114 @@ class Workbook {
     return this.loaded.get(info.path);
   }
 
+  /**
+   * Adds a tab named `newName` that's a copy of tab `sourceName` (formatting, merges, formulas, values),
+   * placed right after it. With `replace`, the copy takes over that existing tab instead (same position,
+   * renamed). Returns the new Sheet.
+   */
+  async addSheetCopy(sourceName, newName, { replace = null } = {}) {
+    const src = this.sheetList.find((s) => s.name === sourceName);
+    const doc = parseXml(await this.zip.file(src.path).async("string"));
+    const root = doc.documentElement;
+    root.removeAttribute("xr:uid");
+    for (const v of doc.getElementsByTagNameNS(NS, "sheetView")) v.removeAttribute("tabSelected");
+    // Drop links to the source tab's own parts (printer settings, drawings, tables): the copy has none.
+    for (const el of [...doc.getElementsByTagName("*")]) {
+      if (!el.hasAttributeNS(RNS, "id")) continue;
+      if (el.localName === "pageSetup" || el.localName === "hyperlink") { el.removeAttributeNS(RNS, "id"); continue; }
+      const parent = el.parentNode;
+      parent.removeChild(el);
+      if (parent !== root && !parent.children.length) parent.parentNode.removeChild(parent);
+    }
+
+    const wbRoot = this.wbDoc.documentElement;
+    const sheetEls = [...this.wbDoc.getElementsByTagNameNS(NS, "sheet")];
+    const quoted = (n) => `'${n.replace(/'/g, "''")}'!`;
+    let path;
+    if (replace) {
+      const info = this.sheetList.find((s) => s.name === replace);
+      path = info.path;
+      sheetEls.find((e) => e.getAttribute("name") === replace).setAttribute("name", newName);
+      for (const dn of this.wbDoc.getElementsByTagNameNS(NS, "definedName"))
+        dn.textContent = dn.textContent.split(quoted(replace)).join(quoted(newName));
+      info.name = newName;
+      this.loaded.delete(path);
+      const app = this.zip.file("docProps/app.xml");
+      if (app) {
+        const x = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const text = (await app.async("string"))
+          .split(`>${x(replace)}<`).join(`>${x(newName)}<`)
+          .split(x(quoted(replace))).join(x(quoted(newName)));
+        this.zip.file("docProps/app.xml", text, { createFolders: false });
+      }
+    } else {
+      let n = 1;
+      while (this.zip.file(`xl/worksheets/sheet${n}.xml`)) n++;
+      path = `xl/worksheets/sheet${n}.xml`;
+      const relsDoc = parseXml(await this.zip.file("xl/_rels/workbook.xml.rels").async("string"));
+      const relRoot = relsDoc.documentElement;
+      const ids = [...relRoot.children].map((r) => Number(r.getAttribute("Id").replace(/\D/g, "")) || 0);
+      const rId = `rId${Math.max(0, ...ids) + 1}`;
+      const rel = relsDoc.createElementNS(relRoot.namespaceURI, "Relationship");
+      rel.setAttribute("Id", rId);
+      rel.setAttribute("Type", "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet");
+      rel.setAttribute("Target", `worksheets/sheet${n}.xml`);
+      relRoot.appendChild(rel);
+      this.zip.file("xl/_rels/workbook.xml.rels", serialize(relsDoc), { createFolders: false });
+
+      const ctDoc = parseXml(await this.zip.file("[Content_Types].xml").async("string"));
+      const ov = ctDoc.createElementNS(ctDoc.documentElement.namespaceURI, "Override");
+      ov.setAttribute("PartName", "/" + path);
+      ov.setAttribute("ContentType", "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml");
+      ctDoc.documentElement.appendChild(ov);
+      this.zip.file("[Content_Types].xml", serialize(ctDoc), { createFolders: false });
+
+      const srcEl = sheetEls.find((e) => e.getAttribute("name") === sourceName);
+      const index = sheetEls.indexOf(srcEl) + 1;
+      const el = this.wbDoc.createElementNS(NS, "sheet");
+      el.setAttribute("name", newName);
+      el.setAttribute("sheetId", String(Math.max(...sheetEls.map((e) => Number(e.getAttribute("sheetId")))) + 1));
+      el.setAttributeNS(RNS, "r:id", rId);
+      srcEl.parentNode.insertBefore(el, srcEl.nextSibling);
+      // Tab-specific names (print titles etc.) and the open tab point at tabs by position.
+      for (const dn of this.wbDoc.getElementsByTagNameNS(NS, "definedName")) {
+        const i = dn.getAttribute("localSheetId");
+        if (i !== null && Number(i) >= index) dn.setAttribute("localSheetId", String(Number(i) + 1));
+      }
+      // Give the copy the source tab's print titles / print area.
+      for (const dn of [...this.wbDoc.getElementsByTagNameNS(NS, "definedName")]) {
+        if (dn.getAttribute("localSheetId") !== String(index - 1) || !/^_xlnm\./.test(dn.getAttribute("name"))) continue;
+        const copy = dn.cloneNode(true);
+        copy.setAttribute("localSheetId", String(index));
+        copy.textContent = dn.textContent.split(quoted(sourceName)).join(quoted(newName));
+        dn.parentNode.insertBefore(copy, dn.nextSibling);
+      }
+      for (const v of this.wbDoc.getElementsByTagNameNS(NS, "workbookView")) {
+        const a = v.getAttribute("activeTab");
+        if (a !== null && Number(a) >= index) v.setAttribute("activeTab", String(Number(a) + 1));
+      }
+      this.sheetList.splice(index, 0, { name: newName, path });
+    }
+
+    // The calculation chain lists formula cells by tab; let Excel rebuild it.
+    if (this.zip.file("xl/calcChain.xml")) {
+      this.zip.remove("xl/calcChain.xml");
+      const relsDoc = parseXml(await this.zip.file("xl/_rels/workbook.xml.rels").async("string"));
+      for (const r of [...relsDoc.documentElement.children])
+        if (/\/calcChain$/.test(r.getAttribute("Type"))) r.parentNode.removeChild(r);
+      this.zip.file("xl/_rels/workbook.xml.rels", serialize(relsDoc), { createFolders: false });
+      const ctDoc = parseXml(await this.zip.file("[Content_Types].xml").async("string"));
+      for (const o of [...ctDoc.documentElement.children])
+        if (o.getAttribute("PartName") === "/xl/calcChain.xml") o.parentNode.removeChild(o);
+      this.zip.file("[Content_Types].xml", serialize(ctDoc), { createFolders: false });
+    }
+
+    const sheet = new Sheet(this, newName, path, doc);
+    sheet.dirty = true;
+    this.loaded.set(path, sheet);
+    return sheet;
+  }
+
   /** Returns a Blob of the patched workbook. Excel recalculates every formula when it's opened. */
   async toBlob() {
     for (const sh of this.loaded.values()) {
@@ -238,6 +346,25 @@ class Sheet {
   hasFormula(ref) {
     const c = this._cell(ref, false);
     return !!(c && children(c, "f").length);
+  }
+
+  /** Empties a typed-in value (keeps the cell's formatting). Formula cells are left alone. */
+  clearValue(ref) {
+    const c = this._cell(ref, false);
+    if (!c || children(c, "f").length || !c.firstChild) return;
+    while (c.firstChild) c.removeChild(c.firstChild);
+    c.removeAttribute("t");
+    this.dirty = true;
+  }
+
+  /** How many cells hold a typed-in number (not a formula result). */
+  typedNumberCount() {
+    let n = 0;
+    for (const c of this.sheetData.getElementsByTagNameNS(NS, "c")) {
+      const t = c.getAttribute("t");
+      if (!children(c, "f").length && children(c, "v").length && (!t || t === "n")) n++;
+    }
+    return n;
   }
 
   /**

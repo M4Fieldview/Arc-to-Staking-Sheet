@@ -86,3 +86,5 @@ details.paste .row { margin-top: 8px; }
 .sync-row { margin-top: 12px; }
 
 .result-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
+.hint { color: var(--muted); font-size: .88rem; margin: 8px 0 0; }
+.hint a { color: var(--accent); }

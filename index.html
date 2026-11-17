@@ -13,7 +13,7 @@
 <main>
   <header>
     <h1>Sync Arc to Staking Sheet</h1>
-    <p>Fills the <strong>S</strong> (staked) columns of your irrigation hole summary from the project's ArcGIS staking map.</p>
+    <p>Fills in the <strong>STAKING TOTALS</strong> tab of your irrigation hole summary with staked counts from the project's ArcGIS staking map. Your <strong>DESIGN TOTALS</strong> tab is left as you made it.</p>
   </header>
 
   <section class="step" id="step-signin">
@@ -26,17 +26,18 @@
   </section>
 
   <section class="step" id="step-file">
-    <h2><span class="n"><span>2</span></span> Upload your hole summary sheet</h2>
+    <h2><span class="n"><span>2</span></span> Upload your Excel sheet with the design totals filled in</h2>
     <label class="dropzone" id="dropzone">
       <input type="file" id="file" accept=".xlsx">
       <span class="dz-main" id="dz-main">Drag your sheet here, or <u>click to browse</u></span>
-      <span class="dz-sub">Your project's .xlsx with the D (design) quantities filled in</span>
+      <span class="dz-sub">Your project's hole summary (.xlsx) with the D quantities on the DESIGN TOTALS tab</span>
     </label>
+    <p class="hint">Starting a new project? <a href="Hole%20Summary%20Template.xlsx" download>Download the blank template</a>.</p>
     <div class="status" id="file-status"></div>
   </section>
 
   <section class="step disabled" id="step-map">
-    <h2><span class="n"><span>3</span></span> Pick the staking web map</h2>
+    <h2><span class="n"><span>3</span></span> Pick the ArcGIS web map that has the project's staking data</h2>
     <div class="picker">
       <div class="picker-tabs" role="tablist">
         <button class="tab active" data-scope="org" role="tab">My Organization</button>
@@ -56,7 +57,7 @@
     </div>
     <div class="selected" id="selected" hidden></div>
     <div class="row sync-row">
-      <button id="btn-sync" disabled>Fill in staked counts</button>
+      <button id="btn-sync" disabled>Fill in staking totals</button>
     </div>
     <div class="status" id="map-status"></div>
   </section>

@@ -80,7 +80,11 @@ async function handleFile(f) {
     state.fileBytes = bytes; state.fileName = f.name;
     $("dropzone").classList.add("has-file");
     $("dz-main").innerHTML = `📄 ${esc(f.name)} <u>(change)</u>`;
-    setStatus("file-status", `Found tab <strong>${esc(ctx.sheet.name)}</strong> with ${holes} hole/area rows and ${ctx.mapping.length} material columns (using the ${ctx.mappingSource}).`);
+    const where = !ctx.created ? "" : ctx.created.replaced
+      ? ` It will replace the blank <strong>${esc(ctx.created.replaced)}</strong> tab, laid out like the design tab.`
+      : " It will be added as a new tab, laid out like the design tab.";
+    setStatus("file-status", `Read the design from <strong>${esc(ctx.design.name)}</strong> (${holes} hole/area rows, ${ctx.mapping.length} material columns, using the ${ctx.mappingSource}). ` +
+      `Staked counts will go on the <strong>${esc(ctx.staking.name)}</strong> tab.${where}`);
     prefillSearch();
   } catch (e) {
     setStatus("file-status", `Couldn't read that sheet: ${esc(e.message)}`, true);
@@ -221,7 +225,7 @@ $("btn-sync").onclick = async () => {
     const name = outputName(state.fileName);
     $("download").href = state.downloadUrl;
     $("download").download = name;
-    $("result-note").textContent = `From "${wm.title}" · ${new Date().toLocaleString()}`;
+    $("result-note").textContent = `Staked counts are on the ${ctx.staking.name} tab · from "${wm.title}" · ${new Date().toLocaleString()}`;
     renderReport($("report"), result, warnings);
     $("step-result").hidden = false;
     setStatus("map-status", `Done: ${esc(name)}`);
