@@ -1,6 +1,6 @@
 // The sheet side of a sync, kept free of ArcGIS calls so it can be tested with saved counts.
 import { openWorkbook, numToCol } from "./xlsx.js";
-import { readMappingTab, mappingTable, findLayout, tally, writeStaked, classifyColumn, BLANK } from "./mapping.js";
+import { readMappingTab, mappingTable, findLayout, tally, writeStaked, classifyColumn, BLANK, AREA_GUESSES } from "./mapping.js";
 import { readColumns, matchColumns } from "./headers.js";
 
 export const DESIGN_TAB = "DESIGN TOTALS";
@@ -68,6 +68,7 @@ export function saveMapping(ctx, rows) {
 export function applyCounts(ctx, rowsByLayer) {
   const { design, layout, staking, stakingLayout, mapping } = ctx;
   const { counts, placed, noHole: allNoHole, unmatched } = tally(mapping, rowsByLayer);
+  const guesses = guessAreaRows([layout, stakingLayout], counts, placed);
   const kinds = {};
   for (const m of mapping) kinds[m.col] ??= classifyColumn(design, layout, m.col).kind;
 
@@ -121,7 +122,50 @@ export function applyCounts(ctx, rowsByLayer) {
 
   // Bring the saved +/- and TOTAL results up to date (Protected View doesn't recalculate).
   const recalc = staking.recalc();
-  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
+  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, guesses, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
+}
+
+/**
+ * Process of elimination for rows like "PRACTICE AREA": once every row with a clear code is matched,
+ * the HoleNo codes the map uses that have no row go to the one row whose kind of area allows them
+ * (AREA_GUESSES). If two rows could take a code, nobody gets it and it stays flagged as off the sheet.
+ * Changes the layouts, counts and placed list in place. Returns [{ label, codes, n }].
+ */
+function guessAreaRows(layouts, counts, placed) {
+  const [main] = layouts;
+  const known = new Set(main.rows.map((a) => a.hole).filter(Boolean));
+  const used = new Set(placed.map((p) => p.hole));
+  const leftover = [...used].filter((c) => !known.has(c));
+  const open = main.rows.filter((a) => !a.hole && a.row !== main.adjRow)
+    .map((a) => ({ a, codes: AREA_GUESSES.find((g) => g.re.test(a.label))?.codes || [] }))
+    .filter((x) => x.codes.length);
+  const take = new Map();   // label -> codes
+  for (const code of leftover) {
+    const homes = open.filter((x) => x.codes.includes(code));
+    if (homes.length !== 1) continue;
+    const label = homes[0].a.label;
+    take.set(label, [...(take.get(label) || []), code]);
+  }
+  const out = [];
+  for (const [label, codes] of take) {
+    codes.sort();
+    const key = codes[0];
+    for (const lay of layouts) {
+      const row = lay.rows.find((a) => a.label === label && !a.hole);
+      if (row) row.hole = key;
+    }
+    let n = 0;
+    for (const p of placed) if (codes.includes(p.hole)) { n += p.n; p.hole = key; }
+    for (const col of Object.keys(counts)) {
+      for (const c of codes) {
+        if (c === key || !counts[col][c]) continue;
+        counts[col][key] = (counts[col][key] || 0) + counts[col][c];
+        delete counts[col][c];
+      }
+    }
+    out.push({ label, codes, n });
+  }
+  return out;
 }
 
 export function outputName(originalName) {

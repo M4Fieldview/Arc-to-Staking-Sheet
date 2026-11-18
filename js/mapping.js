@@ -12,6 +12,18 @@ export const HOLE_FIELD = "HoleNo";
 export const HOLE_CODES = [...Array.from({ length: 18 }, (_, i) => String(i + 1).padStart(2, "0")), "CH", "SG", "PG", "CG", "DR"];
 const AREA_ALIASES = { "SHORT GAME": "SG", "CLUBHOUSE": "CH", "CLUB HOUSE": "CH", "DRIVING RANGE": "DR", "RANGE": "DR" };
 
+/**
+ * Rows whose name doesn't give a hole code, but whose kind of area does narrow it down. What a
+ * practice area is called in the field depends on the course (SG one place, PG another), so these
+ * rows take whichever of their codes the map uses that no other row claims. Anything else (blank
+ * HoleNo, "Parking Lot", ...) is never guessed.
+ */
+export const AREA_GUESSES = [
+  { re: /RANGE|DRIVING|PRACTICE\s*TEE|PRACTICE\s*RANGE/i, codes: ["DR"] },
+  { re: /PRACTICE|SHORT\s*GAME|CHIPPING|PITCHING|PUTTING|ACADEMY|TRAINING|LEARNING|TEACHING/i, codes: ["SG", "PG", "CG"] },
+  { re: /CLUB\s*HOUSE|PRO\s*SHOP/i, codes: ["CH"] },
+];
+
 /** "HOLE 7 " -> "07", "SHORT GAME" -> "SG", "DR" -> "DR", "ADJ" -> null (not synced). */
 export function areaToHole(label) {
   const t = String(label ?? "").trim().toUpperCase().replace(/\s+/g, " ");
@@ -106,8 +118,9 @@ export function tally(mapping, rowsByLayer) {
       const hole = norm(lower[HOLE_FIELD.toLowerCase()]);
       if (!hole) { noHole.push({ layer, col: entry.col, label: entry.label, attrs, n }); continue; }
       counts[entry.col] ??= {};
-      counts[entry.col][hole.toUpperCase()] = (counts[entry.col][hole.toUpperCase()] || 0) + n;
-      placed.push({ layer, col: entry.col, label: entry.label, hole: hole.toUpperCase(), attrs, n });
+      const code = areaToHole(hole) || hole.toUpperCase();   // "1" -> "01", older "Clubhouse" -> "CH"
+      counts[entry.col][code] = (counts[entry.col][code] || 0) + n;
+      placed.push({ layer, col: entry.col, label: entry.label, hole: code, attrs, n });
     }
   }
   return { counts, placed, noHole, unmatched };

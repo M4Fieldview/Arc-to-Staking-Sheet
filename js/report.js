@@ -50,6 +50,10 @@ export function renderReport(el, result, extraWarnings = []) {
     warn.push(`<strong>${unmatchedTotal} feature${unmatchedTotal === 1 ? "" : "s"} didn't match any column:</strong><ul>` +
       plainUnmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
   }
+  for (const g of result.guesses || []) {
+    warn.push(`<strong>${esc(g.label)}</strong> got the ${g.n} feature${g.n === 1 ? "" : "s"} with HoleNo <strong>${g.codes.map(esc).join(" and ")}</strong>. ` +
+      `That's a best guess: the sheet has no row named for ${g.codes.length === 1 ? "that code" : "those codes"}, and ${esc(g.label)} is the only row it could be.`);
+  }
   for (const b of result.blankAccepted || []) {
     warn.push(`<strong>${b.n} under <em>${esc(b.label)}</em> had no ${esc(b.field)} entered.</strong> They were counted there because it's the sheet's only column for that head type.`);
   }
