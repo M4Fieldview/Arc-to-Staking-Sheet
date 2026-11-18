@@ -10,7 +10,9 @@ export const BLANK = "(blank)";
 
 export const HOLE_FIELD = "HoleNo";
 export const HOLE_CODES = [...Array.from({ length: 18 }, (_, i) => String(i + 1).padStart(2, "0")), "CH", "SG", "PG", "CG", "DR"];
-const AREA_ALIASES = { "SHORT GAME": "SG", "CLUBHOUSE": "CH", "CLUB HOUSE": "CH", "DRIVING RANGE": "DR", "RANGE": "DR" };
+// CH isn't here: crews use it for both clubhouse and chipping green, so a CLUBHOUSE or CHIPPING row
+// gets it by process of elimination (AREA_GUESSES) instead.
+const AREA_ALIASES = { "SHORT GAME": "SG", "DRIVING RANGE": "DR", "RANGE": "DR" };
 
 /**
  * Rows whose name doesn't give a hole code, but whose kind of area does narrow it down. What a
@@ -20,8 +22,9 @@ const AREA_ALIASES = { "SHORT GAME": "SG", "CLUBHOUSE": "CH", "CLUB HOUSE": "CH"
  */
 export const AREA_GUESSES = [
   { re: /RANGE|DRIVING|PRACTICE\s*TEE|PRACTICE\s*RANGE/i, codes: ["DR"] },
-  { re: /PRACTICE|SHORT\s*GAME|CHIPPING|PITCHING|PUTTING|ACADEMY|TRAINING|LEARNING|TEACHING/i, codes: ["SG", "PG", "CG"] },
-  { re: /CLUB\s*HOUSE|PRO\s*SHOP/i, codes: ["CH"] },
+  { re: /CHIPPING/i, codes: ["CG", "CH", "SG", "PG"] },            // CH sometimes means chipping green
+  { re: /PRACTICE|SHORT\s*GAME|PITCHING|PUTTING|ACADEMY|TRAINING|LEARNING|TEACHING/i, codes: ["SG", "PG", "CG"] },
+  { re: /CLUB\s*HOUSE|PRO\s*SHOP/i, codes: ["CH", "CLUBHOUSE"] },
 ];
 
 /** "HOLE 7 " -> "07", "SHORT GAME" -> "SG", "DR" -> "DR", "ADJ" -> null (not synced). */
@@ -118,7 +121,8 @@ export function tally(mapping, rowsByLayer) {
       const hole = norm(lower[HOLE_FIELD.toLowerCase()]);
       if (!hole) { noHole.push({ layer, col: entry.col, label: entry.label, attrs, n }); continue; }
       counts[entry.col] ??= {};
-      const code = areaToHole(hole) || hole.toUpperCase();   // "1" -> "01", older "Clubhouse" -> "CH"
+      // "1" -> "01". The older spelled-out "Clubhouse" value stays its own code: unlike CH, it can't mean chipping green.
+      const code = /^CLUB\s*HOUSE$/i.test(hole) ? "CLUBHOUSE" : areaToHole(hole) || hole.toUpperCase();
       counts[entry.col][code] = (counts[entry.col][code] || 0) + n;
       placed.push({ layer, col: entry.col, label: entry.label, hole: code, attrs, n });
     }

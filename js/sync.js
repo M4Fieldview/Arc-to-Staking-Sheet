@@ -68,7 +68,7 @@ export function saveMapping(ctx, rows) {
 export function applyCounts(ctx, rowsByLayer) {
   const { design, layout, staking, stakingLayout, mapping } = ctx;
   const { counts, placed, noHole: allNoHole, unmatched } = tally(mapping, rowsByLayer);
-  const guesses = guessAreaRows([layout, stakingLayout], counts, placed);
+  const { guesses, ambiguous } = guessAreaRows([layout, stakingLayout], counts, placed);
   const kinds = {};
   for (const m of mapping) kinds[m.col] ??= classifyColumn(design, layout, m.col).kind;
 
@@ -122,14 +122,15 @@ export function applyCounts(ctx, rowsByLayer) {
 
   // Bring the saved +/- and TOTAL results up to date (Protected View doesn't recalculate).
   const recalc = staking.recalc();
-  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, guesses, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
+  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, guesses, ambiguous, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
 }
 
 /**
  * Process of elimination for rows like "PRACTICE AREA": once every row with a clear code is matched,
  * the HoleNo codes the map uses that have no row go to the one row whose kind of area allows them
  * (AREA_GUESSES). If two rows could take a code, nobody gets it and it stays flagged as off the sheet.
- * Changes the layouts, counts and placed list in place. Returns [{ label, codes, n }].
+ * Changes the layouts, counts and placed list in place. Returns { guesses: [{ label, codes, n }],
+ * ambiguous: [{ code, labels, n }] } (codes that more than one row could take).
  */
 function guessAreaRows(layouts, counts, placed) {
   const [main] = layouts;
@@ -140,8 +141,12 @@ function guessAreaRows(layouts, counts, placed) {
     .map((a) => ({ a, codes: AREA_GUESSES.find((g) => g.re.test(a.label))?.codes || [] }))
     .filter((x) => x.codes.length);
   const take = new Map();   // label -> codes
+  const ambiguous = [];
   for (const code of leftover) {
     const homes = open.filter((x) => x.codes.includes(code));
+    if (homes.length > 1) {
+      ambiguous.push({ code, labels: homes.map((h) => h.a.label), n: placed.filter((p) => p.hole === code).reduce((s, p) => s + p.n, 0) });
+    }
     if (homes.length !== 1) continue;
     const label = homes[0].a.label;
     take.set(label, [...(take.get(label) || []), code]);
@@ -155,7 +160,8 @@ function guessAreaRows(layouts, counts, placed) {
       if (row) row.hole = key;
     }
     let n = 0;
-    for (const p of placed) if (codes.includes(p.hole)) { n += p.n; p.hole = key; }
+    const byCode = {};
+    for (const p of placed) if (codes.includes(p.hole)) { n += p.n; byCode[p.hole] = (byCode[p.hole] || 0) + p.n; p.hole = key; }
     for (const col of Object.keys(counts)) {
       for (const c of codes) {
         if (c === key || !counts[col][c]) continue;
@@ -163,9 +169,9 @@ function guessAreaRows(layouts, counts, placed) {
         delete counts[col][c];
       }
     }
-    out.push({ label, codes, n });
+    out.push({ label, codes, n, byCode });
   }
-  return out;
+  return { guesses: out, ambiguous };
 }
 
 export function outputName(originalName) {
