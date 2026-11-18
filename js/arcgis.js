@@ -106,27 +106,33 @@ export async function groupedCounts(session, layerUrl, fields) {
   const info = await req(session, layerUrl);
   const actual = {};
   for (const f of info.fields || []) actual[f.name.toLowerCase()] = f.name;
-  const missing = fields.filter((f) => !actual[f.toLowerCase()]);
+  // Older layers may have no HoleNo field: still count them (as blank HoleNo) and mark the result.
+  const noHoleField = !actual[HOLE_FIELD.toLowerCase()];
+  const queryFields = noHoleField ? fields.filter((f) => f !== HOLE_FIELD) : fields;
+  const missing = queryFields.filter((f) => !actual[f.toLowerCase()]);
   if (missing.length) {
-    const err = new Error(`layer "${info.name}" has no ${missing.join(", ")} field` +
-      (missing.includes(HOLE_FIELD) ? " (run Standardize_HoleNo on this web map)" : ""));
+    const err = new Error(`the layer has no ${missing.join(", ")} field`);
     err.missingFields = missing;
     throw err;
   }
   const oid = info.objectIdField || (info.fields.find((f) => f.type === "esriFieldTypeOID") || {}).name || "OBJECTID";
-  const res = await req(session, `${layerUrl}/query`, {
+  const params = {
     where: "1=1",
-    groupByFieldsForStatistics: fields.map((f) => actual[f.toLowerCase()]).join(","),
     outStatistics: JSON.stringify([{ statisticType: "count", onStatisticField: oid, outStatisticFieldName: "n" }]),
     returnGeometry: false,
-  });
+  };
+  if (queryFields.length) params.groupByFieldsForStatistics = queryFields.map((f) => actual[f.toLowerCase()]).join(",");
+  const res = await req(session, `${layerUrl}/query`, params);
   if (res.error) throw new Error(res.error.message || "query failed");
-  return (res.features || []).map((ft) => {
+  // With nothing to group by, the statistics query returns one total row.
+  const rows = (res.features || []).map((ft) => {
     const lower = Object.fromEntries(Object.entries(ft.attributes).map(([k, v]) => [k.toLowerCase(), v]));
     const row = { n: Number(lower.n ?? 0) };
     for (const f of fields) row[f] = lower[f.toLowerCase()] ?? null;
     return row;
-  });
+  }).filter((r) => r.n > 0);
+  rows.noHoleField = noHoleField;
+  return rows;
 }
 
 /**

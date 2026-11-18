@@ -14,7 +14,8 @@
 <div id="app"></div>
 <script type="module">
   // ---- Fake ArcGIS: same surface the app uses from arcgis-rest-js ----
-  const fixture = await (await fetch("kettle-forge-fixture.json")).json();
+  const qs = new URLSearchParams(location.search);   // ?schema=…&fixture=… to try another saved map
+  const fixture = await (await fetch(qs.get("fixture") || "kettle-forge-fixture.json")).json();
   const MAPS = [
     ["0b71d91d79d146a98775d056d9492779", "2603 Kettle Forge Staking"],
     ["aaaa1111bbbb2222cccc3333dddd4444", "2603 Kettle Forge As Builts"],
@@ -23,7 +24,7 @@
     ["ba1852ffe5ef41eaa31268163b9022e7", "2646 Overlook Golf Course Staking"],
   ].map(([id, title], i) => ({ id, title, type: "Web Map", owner: "Landscapes_Unlimited", modified: Date.now() - i * 864e5 * 3 }));
   // Layer setups (fields + dropdown lists) saved from the real Kettle Forge map.
-  const SCHEMA = (await (await fetch("kettle-forge-schema.json")).json()).layers;
+  const SCHEMA = (await (await fetch(qs.get("schema") || "kettle-forge-schema.json")).json()).layers;
   const LAYERS = Object.keys(SCHEMA);
   const fakeSession = { username: "test_pm", tokenExpires: new Date(Date.now() + 36e5), getUser: async () => ({ username: "test_pm", orgId: "ORG", favGroupId: "FAV" }), serialize: () => "{}" };
 
@@ -54,7 +55,7 @@
         return { objectIdFieldName: "OBJECTID", objectIds: /HoleNo IS NULL/.test(params.where) ? [209] : [9001, 9002] };
       }
       if (m) {
-        const group = params.groupByFieldsForStatistics.split(",");
+        const group = (params.groupByFieldsForStatistics || "").split(",").filter(Boolean);
         const acc = new Map();
         for (const r of fixture[m[1]] || []) {
           const key = group.map((g) => r[g] ?? null), k = JSON.stringify(key);

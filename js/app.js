@@ -244,18 +244,27 @@ $("btn-sync").onclick = async () => {
     const warnings = state.review.filter((r) => r.skip || !r.layer).map((r) =>
       `Column <strong>${esc(r.col)}</strong> (${esc(r.header || "no header")}) was left blank: no layer was picked for it in step 4.`);
     const rowsByLayer = {};
+    const noHoleField = [];   // layers with no HoleNo field at all
     let done = 0;
     await Promise.all(Object.entries(needed).map(async ([layer, fields]) => {
       const url = wm.layers[layer];
       if (!url) { warnings.push(`The web map has no layer named <strong>${esc(layer)}</strong>, so its columns were left alone.`); return; }
       try {
         rowsByLayer[layer] = await groupedCounts(state.session, url, fields);
+        if (rowsByLayer[layer].noHoleField) noHoleField.push(layer);
       } catch (e) {
         warnings.push(`Couldn't count <strong>${esc(layer)}</strong>: ${esc(e.message)}.`);
       }
       setStatus("sync-status", `Counting staked features… ${++done}/${Object.keys(needed).length} layers`);
     }));
     const result = applyCounts(ctx, rowsByLayer);
+    // A layer without a HoleNo field gets one line, instead of every feature flagged as a blank HoleNo.
+    for (const layer of noHoleField) {
+      const n = result.noHole.filter((x) => x.layer === layer).reduce((s, x) => s + x.n, 0);
+      const row = result.noHole.find((x) => x.layer === layer && x.countedIn)?.countedIn;
+      if (n) warnings.push(`<strong>${esc(layer)}</strong> has no HoleNo field in this map, so ${row ? `all ${n} were counted in the <strong>${esc(row)}</strong> row` : `its ${n} features couldn't go on a hole`}.`);
+    }
+    result.noHole = result.noHole.filter((x) => !noHoleField.includes(x.layer));
     // Look up the object IDs of anything flagged, so PMs can find those points in the map.
     const flagged = [...result.noHole, ...result.unmatched, ...result.noDesign, ...result.wrongHole];
     if (flagged.length) setStatus("sync-status", "Looking up flagged features…");

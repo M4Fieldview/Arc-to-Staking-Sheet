@@ -1,7 +1,11 @@
 // Renders the after-sync summary: what went where, and anything that couldn't be placed.
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const SHOW_IDS = 10;
 const idText = (o) => !o || !o.total ? "" :
-  `: <strong>${o.field}${o.total === 1 ? "" : "s"} ${o.ids.join(", ")}${o.total > o.ids.length ? ` +${o.total - o.ids.length} more` : ""}</strong>`;
+  `: <strong>${o.field}${o.total === 1 ? "" : "s"} ${o.ids.slice(0, SHOW_IDS).join(", ")}${o.total > SHOW_IDS ? ` +${o.total - Math.min(SHOW_IDS, o.ids.length)} more` : ""}</strong>`;
+// Feature lists and IDs sit behind a "Show" toggle so each issue reads as one line.
+const fold = (label, inner) => `<details class="more"><summary>${label}</summary>${inner}</details>`;
+const ul = (items) => fold(`Show which (${items.length === 1 ? "1 group" : items.length + " groups"})`, `<ul>${items.join("")}</ul>`);
 const attrText = (a) => Object.entries(a).filter(([k]) => k !== "HoleNo").map(([k, v]) => `${k} ${v === null || v === undefined || String(v).trim() === "" ? "blank" : v}`).join(", ") || "no attributes";
 
 export function renderReport(el, result, extraWarnings = []) {
@@ -14,41 +18,42 @@ export function renderReport(el, result, extraWarnings = []) {
   const countedTotal = counted.reduce((s, x) => s + x.n, 0);
   if (countedTotal) {
     warn.push(`<strong>${countedTotal} staked feature${plural(countedTotal, " has", "s have")} a blank HoleNo</strong>, so ${plural(countedTotal, "it was", "they were")} counted in the <strong>${esc(counted[0].countedIn)}</strong> row instead of on a hole. ` +
-      `Fill in the HoleNo in Field Maps and re-run to move ${plural(countedTotal, "it", "them")} to the right hole:<ul>` +
-      counted.map((x) => `<li>${x.n} × ${esc(x.layer)} under <em>${esc(x.label)}</em> (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+      `Fill in the HoleNo in Field Maps and re-run to move ${plural(countedTotal, "it", "them")} to the right hole.` +
+      ul(counted.map((x) => `<li>${x.n} × ${esc(x.layer)} under <em>${esc(x.label)}</em> (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`)));
   }
   const droppedTotal = dropped.reduce((s, x) => s + x.n, 0);
   if (droppedTotal) {
     warn.push(`<strong>${droppedTotal} staked feature${plural(droppedTotal, " has", "s have")} a blank HoleNo</strong> and ${plural(droppedTotal, "was", "were")} <strong>not added to the sheet</strong> (the sheet has no ADJ row to hold ${plural(droppedTotal, "it", "them")}). ` +
-      `Fill in the HoleNo in Field Maps and re-run:<ul>` +
-      dropped.map((x) => `<li>${x.n} × ${esc(x.layer)} under <em>${esc(x.label)}</em> (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+      `Fill in the HoleNo in Field Maps and re-run.` +
+      ul(dropped.map((x) => `<li>${x.n} × ${esc(x.layer)} under <em>${esc(x.label)}</em> (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`)));
   }
   const byCol = {};
   for (const x of result.noDesign || []) (byCol[x.col] ??= []).push(x);
   for (const list of Object.values(byCol)) {
     const total = list.reduce((s, x) => s + x.n, 0);
     warn.push(`<strong>${total} feature${total === 1 ? " was" : "s were"} counted under <em>${esc(list[0].label)}</em>, but the sheet has no design quantity for that column.</strong> ` +
-      `This usually means a head type or nozzle was entered wrong in the field. These are on the sheet, so check them:<ul>` +
-      list.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.hole)} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+      `This usually means a head type or nozzle was entered wrong in the field. These are on the sheet, so check them.` +
+      ul(list.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.hole)} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`)));
   }
   const wrongByCol = {};
   for (const x of result.wrongHole || []) (wrongByCol[x.col] ??= []).push(x);
   for (const list of Object.values(wrongByCol)) {
     const total = list.reduce((s, x) => s + x.n, 0);
     warn.push(`<strong>${total} ${esc(list[0].label)} ${total === 1 ? "was" : "were"} staked on ${list.length === 1 ? "a hole" : "holes"} where the design calls for none.</strong> ` +
-      `Check for a wrong HoleNo or a wrong head type/nozzle. These are on the sheet:<ul>` +
-      list.map((x) => `<li>${x.n} on ${esc(x.area)} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+      `Check for a wrong HoleNo or a wrong head type/nozzle. These are on the sheet.` +
+      ul(list.map((x) => `<li>${x.n} on ${esc(x.area)} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`)));
   }
   for (const x of unmatched.filter((u) => u.couldBe)) {
     warn.push(`<strong>${x.n} × ${esc(x.layer)} (${esc(attrText(x.attrs))}) ${x.n === 1 ? "isn't" : "aren't"} on the sheet:</strong> ` +
       `no ${esc(x.couldBe.fields.join(" or "))} was entered, so the tool can't tell whether ${x.n === 1 ? "it goes" : "they go"} under ` +
-      `${x.couldBe.labels.map((l) => `<em>${esc(l)}</em>`).join(" or ")}. Fill in the ${esc(x.couldBe.fields.join(" and "))} in Field Maps and re-run${idText(x.oids)}`);
+      `${x.couldBe.labels.map((l) => `<em>${esc(l)}</em>`).join(" or ")}. Fill in the ${esc(x.couldBe.fields.join(" and "))} in Field Maps and re-run.` +
+      (x.oids?.total ? fold("Show OBJECTIDs", `<p>${idText(x.oids).replace(/^: /, "")}</p>`) : ""));
   }
   const plainUnmatched = unmatched.filter((u) => !u.couldBe);
   const unmatchedTotal = plainUnmatched.reduce((s, x) => s + x.n, 0);
   if (unmatchedTotal) {
-    warn.push(`<strong>${unmatchedTotal} feature${unmatchedTotal === 1 ? "" : "s"} didn't match any column:</strong><ul>` +
-      plainUnmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+    warn.push(`<strong>${unmatchedTotal} feature${unmatchedTotal === 1 ? "" : "s"} didn't match any column.</strong>` +
+      ul(plainUnmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`)));
   }
   for (const full of result.guesses || []) {
     // The spelled-out "Clubhouse" value going to a clubhouse row isn't a guess.
