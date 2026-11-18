@@ -1,0 +1,130 @@
+{
+ "Fairway": [
+  {
+   "HoleNo": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "n": 1
+  }
+ ],
+ "Tee": [
+  {
+   "HoleNo": " ",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "16",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  }
+ ],
+ "Bunker": [
+  {
+   "HoleNo": " ",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 13
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  }
+ ],
+ "Bunker Island": [
+  {
+   "IslandNumber": " ",
+   "n": 1
+  }
+ ],
+ "Green": [
+  {
+   "Final_Shape": " ",
+   "HoleNo": " ",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "08",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": " ",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "07",
+   "Type": " ",
+   "n": 1
+  }
+ ],
+ "Hunter Head": [
+  {
+   "HeadType": " ",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 1
+  },
+  {
+   "HeadType": "I-20-04 Rotor",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 8
+  }
+ ],
+ "Quick Coupler": [
+  {
+   "QCV_Size": " ",
+   "n": 26
+  }
+ ],
+ "Toro Head": [
+  {
+   "HeadType": " ",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 7
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 968
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": "34",
+   "HoleNo": null,
+   "n": 4
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 258
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": "34",
+   "HoleNo": null,
+   "n": 3
+  }
+ ]
+}

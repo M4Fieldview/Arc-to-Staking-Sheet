@@ -5,6 +5,8 @@ import { nextCol } from "./xlsx.js";
 // or { ..., other: true } = every feature in that layer that no other column claimed.
 // The rows come from reading the headers (headers.js), or from the hidden MAPPING tab a past sync saved.
 export const NOT_COUNTED = "(not counted)";
+// A filter value that matches a blank field (e.g. no nozzle entered).
+export const BLANK = "(blank)";
 
 export const HOLE_FIELD = "HoleNo";
 export const HOLE_CODES = [...Array.from({ length: 18 }, (_, i) => String(i + 1).padStart(2, "0")), "CH", "SG", "PG", "CG", "DR"];
@@ -72,12 +74,13 @@ export function fieldsByLayer(mapping) {
   return Object.fromEntries(Object.entries(out).map(([k, v]) => [k, [...v]]));
 }
 
-const norm = (v) => (v === null || v === undefined ? null : String(v).trim());
+const norm = (v) => (v === null || v === undefined || String(v).trim() === "" ? null : String(v).trim());
 
 function matches(entry, attrsLower) {
   return Object.entries(entry.filter || {}).every(([field, values]) => {
     const v = norm(attrsLower[field.toLowerCase()]);
-    return v !== null && values.some((x) => x.toLowerCase() === v.toLowerCase());
+    if (v === null) return values.includes(BLANK);
+    return values.some((x) => x.toLowerCase() === v.toLowerCase());
   });
 }
 
@@ -126,8 +129,8 @@ export function findLayout(sheet) {
     if (!label) continue;
     rows.push({ row: r, label, hole: areaToHole(label) });
   }
-  // The ADJ (adjustments) row: where features with a blank HoleNo are counted.
-  const adjRow = rows.find((a) => !a.hole && /^ADJ/i.test(a.label))?.row ?? null;
+  // The ADJ (adjustments) row, called Contingency on some sheets: where features with a blank HoleNo are counted.
+  const adjRow = rows.find((a) => !a.hole && /^(ADJ|CONTINGENC)/i.test(a.label))?.row ?? null;
   return { headerRow, areaCol, rows, adjRow };
 }
 

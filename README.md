@@ -15,8 +15,9 @@
 ## How columns are matched
 There's no master list of heads and nozzles. The tool reads each material header on DESIGN TOTALS and looks it up in the **dropdown lists of the chosen web map's layers**, so a new head type works as soon as it's in the map's dropdown.
 - **Heads:** `Toro FLX34-34` → Toro Head, HeadType `FLX34`, Nozzle `34`. `RB 752-36` / `Rainbird 702` → Rain Bird Head (`Head_Type`). With no brand (`702-32`, `5004 Rotor`), the brand comes from whichever head layer has that head type; if more than one does, the column is marked to check. `I20` counts every I-20 type. "Block" heads match only when the header says Block. Older Rainbird layers that put the nozzle in the head type (`752-20 F`) are handled too.
+- **Nozzles:** extra specs tacked onto the nozzle are dropped (`INF 34-348` → nozzle `34`, the longest start that's in the map's nozzle list). Heads with **no nozzle entered** count in a column when it's the sheet's only column for that head type; when there are two (e.g. INF35-34 and INF35-35), they're left off and the report says which columns they could belong to.
 - **Other Sprinklers / Other Heads:** every feature in that head layer that no other column counts. The layer is the brand named in the header, or the one most of the sheet's head columns use.
-- **Everything else:** the header is matched to a layer name (`Quick Coupler`, `Drain Valve`, `Drip Valve`, …), with a few synonyms (`Mainline Valve` → Isolation Valve, `QC`, `ARV`, `RCV`). A size like `8"` filters the layer's size dropdown (`08"`).
+- **Everything else:** the header is matched to a layer name (`Quick Coupler`, `Drain Valve`, `Drip Valve`, …), with a few synonyms (`Mainline Valve` / `Gate Valve` → Isolation Valve, `QCV`, `ARV`, `RCV`). Maker names like `CLOW` are ignored. A size like `8"` filters the layer's size dropdown (`08"`).
 - Columns marked **⚠ Check** are still counted (e.g. a nozzle that isn't in the map's list). Columns the tool can't place are **not counted** and left blank until the PM picks a layer. Spare columns with no material name are ignored.
 
 ## What's in this repo
@@ -37,6 +38,7 @@ There's no master list of heads and nozzles. The tool reads each material header
 - Older sheets without a **STAKING TOTALS** tab get one: a copy of DESIGN TOTALS with its D and S numbers blanked. It replaces a blank **INSTALLED TOTALS** tab; if that tab has numbers in it, it's kept and the new tab goes right after DESIGN TOTALS.
 - Billing style, design totals and the "no design here" flags always come from **DESIGN TOTALS**, so they don't depend on how much the PM has copied over yet.
 - Each material column counts the features in one layer that match its filter (e.g. Toro Head with `HeadType=INF34`, `Nozzle=33`). "Other Sprinklers" takes every Toro head that no other column claimed.
+- The **ADJ** row may be called **Contingency** on some sheets; both work.
 - Rows map by name: `HOLE 7` → HoleNo `07`, `SHORT GAME` → `SG`, and `DR`/`CG`/`PG`/`CH` as is. Rows with no matching code (like **ADJ**) are never touched.
 - A count is written only where something is staked. A cell that already held a number is reset to 0 if nothing is staked there now.
 - Each column's billing style comes from its D column. **Billed by hole**: design quantities sit on hole rows. **Billed in total**: hole rows are blank/0 and the total sits in a row like ADJ (mainline valves, Hunter temp heads).

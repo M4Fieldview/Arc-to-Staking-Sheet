@@ -212,8 +212,10 @@ class Workbook {
 
   /** Adds an empty worksheet part named `name` at tab position `index`; returns its path in the zip. */
   async _registerSheet(name, index, { hidden = false } = {}) {
+    // A tab added earlier in this run isn't in the zip until toBlob(), so check the tab list too.
+    const taken = (p) => this.zip.file(p) || this.sheetList.some((s) => s.path === p);
     let n = 1;
-    while (this.zip.file(`xl/worksheets/sheet${n}.xml`)) n++;
+    while (taken(`xl/worksheets/sheet${n}.xml`)) n++;
     const path = `xl/worksheets/sheet${n}.xml`;
     const relsDoc = parseXml(await this.zip.file("xl/_rels/workbook.xml.rels").async("string"));
     const relRoot = relsDoc.documentElement;

@@ -2,7 +2,7 @@
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const idText = (o) => !o || !o.total ? "" :
   `: <strong>${o.field}${o.total === 1 ? "" : "s"} ${o.ids.join(", ")}${o.total > o.ids.length ? ` +${o.total - o.ids.length} more` : ""}</strong>`;
-const attrText = (a) => Object.entries(a).filter(([k]) => k !== "HoleNo").map(([k, v]) => `${k} ${v ?? "blank"}`).join(", ") || "no attributes";
+const attrText = (a) => Object.entries(a).filter(([k]) => k !== "HoleNo").map(([k, v]) => `${k} ${v === null || v === undefined || String(v).trim() === "" ? "blank" : v}`).join(", ") || "no attributes";
 
 export function renderReport(el, result, extraWarnings = []) {
   const { summary, noHole, unmatched, skippedRows } = result;
@@ -39,10 +39,19 @@ export function renderReport(el, result, extraWarnings = []) {
       `Check for a wrong HoleNo or a wrong head type/nozzle. These are on the sheet:<ul>` +
       list.map((x) => `<li>${x.n} on ${esc(x.area)} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
   }
-  const unmatchedTotal = unmatched.reduce((s, x) => s + x.n, 0);
+  for (const x of unmatched.filter((u) => u.couldBe)) {
+    warn.push(`<strong>${x.n} × ${esc(x.layer)} (${esc(attrText(x.attrs))}) ${x.n === 1 ? "isn't" : "aren't"} on the sheet:</strong> ` +
+      `no ${esc(x.couldBe.fields.join(" or "))} was entered, so the tool can't tell whether ${x.n === 1 ? "it goes" : "they go"} under ` +
+      `${x.couldBe.labels.map((l) => `<em>${esc(l)}</em>`).join(" or ")}. Fill in the ${esc(x.couldBe.fields.join(" and "))} in Field Maps and re-run${idText(x.oids)}`);
+  }
+  const plainUnmatched = unmatched.filter((u) => !u.couldBe);
+  const unmatchedTotal = plainUnmatched.reduce((s, x) => s + x.n, 0);
   if (unmatchedTotal) {
     warn.push(`<strong>${unmatchedTotal} feature${unmatchedTotal === 1 ? "" : "s"} didn't match any column:</strong><ul>` +
-      unmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+      plainUnmatched.map((x) => `<li>${x.n} × ${esc(x.layer)} on hole ${esc(x.attrs.HoleNo ?? "blank")} (${esc(attrText(x.attrs))})${idText(x.oids)}</li>`).join("") + "</ul>");
+  }
+  for (const b of result.blankAccepted || []) {
+    warn.push(`<strong>${b.n} under <em>${esc(b.label)}</em> had no ${esc(b.field)} entered.</strong> They were counted there because it's the sheet's only column for that head type.`);
   }
   for (const s of summary) {
     if (s.skipped) warn.push(`Column ${esc(s.col)} (${esc(s.label)}) was skipped: ${esc(s.skipped)}.`);
@@ -60,5 +69,5 @@ export function renderReport(el, result, extraWarnings = []) {
   el.innerHTML =
     (warn.length ? `<div class="warn"><h3>Check these</h3>${warn.map((w) => `<div class="warn-item">${w}</div>`).join("")}</div>` : "") +
     `<table class="report"><thead><tr><th>S col</th><th>Material</th><th class="num">Staked</th><th class="num">Design</th><th class="num">%</th><th>By hole</th></tr></thead><tbody>${rows}</tbody></table>` +
-    (skippedRows.length ? `<p class="note">Features with a blank HoleNo are counted in the ADJ row's S cells, which are refilled on every sync, so make any by-hand staked adjustments there after your final sync. Other rows without a hole number (${skippedRows.filter((r) => !/^ADJ/i.test(r)).map(esc).join(", ") || "none"}) are left alone.</p>` : "");
+    (skippedRows.length ? `<p class="note">Features with a blank HoleNo are counted in the ADJ (or Contingency) row's S cells, which are refilled on every sync, so make any by-hand staked adjustments there after your final sync. Other rows without a hole number (${skippedRows.filter((r) => !/^(ADJ|CONTINGENC)/i.test(r)).map(esc).join(", ") || "none"}) are left alone.</p>` : "");
 }

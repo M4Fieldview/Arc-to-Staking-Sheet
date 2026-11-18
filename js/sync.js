@@ -1,6 +1,6 @@
 // The sheet side of a sync, kept free of ArcGIS calls so it can be tested with saved counts.
 import { openWorkbook, numToCol } from "./xlsx.js";
-import { readMappingTab, mappingTable, findLayout, tally, writeStaked, classifyColumn } from "./mapping.js";
+import { readMappingTab, mappingTable, findLayout, tally, writeStaked, classifyColumn, BLANK } from "./mapping.js";
 import { readColumns, matchColumns } from "./headers.js";
 
 export const DESIGN_TAB = "DESIGN TOTALS";
@@ -95,9 +95,33 @@ export function applyCounts(ctx, rowsByLayer) {
     return !(typeof d === "number" && d > 0);
   }).map((p) => ({ ...p, area: rowOf[p.hole].label }));
 
+  // Unmatched because a field is blank and more than one column could take them (e.g. INF35 with no
+  // nozzle, on a sheet with INF35-34 and INF35-35 columns): say which columns.
+  const isBlank = (v) => v === null || v === undefined || String(v).trim() === "";
+  for (const x of unmatched) {
+    const blanks = new Set();
+    const could = mapping.filter((m) => m.layer === x.layer && !m.other && Object.entries(m.filter || {}).every(([f, vals]) => {
+      if (isBlank(x.attrs[f])) { blanks.add(f); return true; }
+      return vals.some((v) => v.toLowerCase() === String(x.attrs[f]).trim().toLowerCase());
+    }));
+    if (could.length > 1 && blanks.size) x.couldBe = { fields: [...blanks], labels: could.map((m) => m.label) };
+  }
+
+  // Features counted even though a field was blank (e.g. no nozzle, on the sheet's only column for that head type).
+  const blankAccepted = {};
+  for (const x of [...placed, ...allNoHole]) {
+    const m = mapping.find((e) => e.col === x.col);
+    for (const [f, vals] of Object.entries(m?.filter || {})) {
+      const v = x.attrs[f];
+      if (!vals.includes(BLANK) || (v !== null && v !== undefined && String(v).trim() !== "")) continue;
+      const k = x.col + "|" + f;
+      (blankAccepted[k] ??= { col: x.col, label: x.label, field: f, n: 0 }).n += x.n;
+    }
+  }
+
   // Bring the saved +/- and TOTAL results up to date (Protected View doesn't recalculate).
   const recalc = staking.recalc();
-  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
+  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
 }
 
 export function outputName(originalName) {

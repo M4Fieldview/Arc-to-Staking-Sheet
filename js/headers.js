@@ -2,6 +2,7 @@
 // '8" Mainline Valve') and matching it against the dropdown lists of the chosen web map's layers.
 // There's no master list of head/nozzle combos: the map's own HeadType/Nozzle/Size dropdowns are the list.
 import { nextCol } from "./xlsx.js";
+import { BLANK } from "./mapping.js";
 
 // Words in a header that name a brand. A header without one gets its brand from whichever
 // head layer has the head type in its dropdown (702 is only in Rain Bird's list).
@@ -112,10 +113,16 @@ function matchHead(H, catalog) {
       const exact = vals.filter((x) => { const h = headCore(x); return h.core === r.model && h.block === block; });
       if (exact.length) {
         let score = r.nozzle ? 3 : 2;
-        let nozzleNote = null;
-        if (r.nozzle && l.nozzleField?.values && !l.nozzleField.values.includes(r.nozzle)) { score = 2.5; nozzleNote = r.nozzle; }
+        let nozzle = r.nozzle, nozzleNote = null, readAs = null;
+        const list = l.nozzleField?.values;
+        if (nozzle && list && !list.includes(nozzle)) {
+          // Extra specs tacked onto the nozzle ("34-348" = nozzle 34): use the longest start that's in the list.
+          const start = [...list].filter((v) => v.length >= 2 && nozzle.startsWith(v)).sort((a, b) => b.length - a.length)[0];
+          if (start) { readAs = `${nozzle} as ${start}`; nozzle = start; }
+          else { score = 2.5; nozzleNote = nozzle; }
+        }
         if (r.nozzle && !l.nozzleField) score = 1.5;
-        hits.push({ layer: l, values: exact, nozzle: r.nozzle, score, model: r.model, nozzleNote });
+        hits.push({ layer: l, values: exact, nozzle, score, model: r.model, nozzleNote, readAs });
         continue;
       }
       // A family: "I20" covers I-20-04 and I-20-06.
@@ -145,6 +152,7 @@ function matchHead(H, catalog) {
   const notes = [];
   if (!brand) notes.push(`brand worked out from the head type (${h.model} is a ${l.title.replace(/\s*Head$/i, "")} head)`);
   if (h.family) notes.push(`counts every ${filter[l.headField.name].join(" / ")}`);
+  if (h.readAs) notes.push(`read nozzle ${h.readAs}`);
   let status = "ok";
   if (h.nozzleNote) { status = "check"; notes.push(`nozzle ${h.nozzleNote} isn't in the ${l.title} nozzle list`); }
   if (h.nozzle && !l.nozzleField) { status = "check"; notes.push(`${l.title} has no Nozzle field, so the nozzle can't be checked`); }
@@ -226,6 +234,20 @@ export function matchColumns(columns, catalog) {
     delete o.pendingOther; delete o.H;
     if (!layer) Object.assign(o, { status: "none", note: note || "couldn't tell which head layer this is for" });
     else Object.assign(o, { layer, other: true, status: "ok", note: brand ? null : `the sheet's other head columns are ${layer}` });
+  }
+  // Heads with no nozzle entered: if this is the sheet's only column for that head type, they count
+  // here (it can only be this one). With two columns for the same head type, they can't be split
+  // and get flagged as not matching a column.
+  for (const m of out) {
+    if (!m.isHead || m.status === "none") continue;
+    const lyr = catalog.find((l) => l.title === m.layer);
+    const nz = lyr?.nozzleField?.name, ht = lyr?.headField?.name;
+    if (!nz || !m.filter?.[nz]) continue;
+    const types = new Set(m.filter[ht]);
+    const shared = out.some((o) => o !== m && o.layer === m.layer && !o.other && (!o.filter?.[ht] || o.filter[ht].some((v) => types.has(v))));
+    if (shared) continue;
+    m.filter[nz] = [...m.filter[nz], BLANK];
+    m.note = [m.note, `heads with no nozzle entered count here too (the only ${m.filter[ht].join(" / ")} column)`].filter(Boolean).join("; ");
   }
   return out;
 }
