@@ -88,3 +88,13 @@ details.paste .row { margin-top: 8px; }
 .result-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
 .hint { color: var(--muted); font-size: .88rem; margin: 8px 0 0; }
 .hint a { color: var(--accent); }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: .8rem; white-space: nowrap; border: 1px solid var(--line); }
+.badge.ok { color: var(--accent); }
+.badge.check { background: var(--warn-bg); border-color: var(--warn-line); }
+.badge.none { color: var(--err); }
+table.review .note { margin-top: 2px; }
+tr.editor td { background: var(--bg); }
+.edit-grid { display: flex; flex-direction: column; gap: 8px; padding: 6px 0; }
+.edit-grid .fields { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.edit-grid label { display: flex; gap: 6px; align-items: center; font-size: .9rem; }
+.edit-grid select { max-width: 260px; }

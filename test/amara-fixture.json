@@ -1,0 +1,1358 @@
+{
+ "Area Generic": [
+  {
+   "n": 95
+  }
+ ],
+ "Cart Path Area": [
+  {
+   "n": 4
+  }
+ ],
+ "Initial Disturbance": [
+  {
+   "n": 1
+  }
+ ],
+ "Native": [
+  {
+   "n": 10
+  }
+ ],
+ "Sod": [
+  {
+   "Hole_No": null,
+   "n": 32
+  },
+  {
+   "Hole_No": "01",
+   "n": 1
+  },
+  {
+   "Hole_No": "02",
+   "n": 1
+  },
+  {
+   "Hole_No": "04",
+   "n": 1
+  },
+  {
+   "Hole_No": "05",
+   "n": 1
+  },
+  {
+   "Hole_No": "07",
+   "n": 1
+  },
+  {
+   "Hole_No": "08",
+   "n": 1
+  },
+  {
+   "Hole_No": "13",
+   "n": 1
+  },
+  {
+   "Hole_No": "14",
+   "n": 1
+  },
+  {
+   "Hole_No": "15",
+   "n": 1
+  },
+  {
+   "Hole_No": "16",
+   "n": 1
+  },
+  {
+   "Hole_No": "18",
+   "n": 1
+  },
+  {
+   "Hole_No": "SG",
+   "n": 1
+  }
+ ],
+ "Tee": [
+  {
+   "HoleNo": " ",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 10
+  },
+  {
+   "HoleNo": "01",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "01",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 4
+  },
+  {
+   "HoleNo": "02",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "02",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 3
+  },
+  {
+   "HoleNo": "03",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "03",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 4
+  },
+  {
+   "HoleNo": "05",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 6
+  },
+  {
+   "HoleNo": "06",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 6
+  },
+  {
+   "HoleNo": "07",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "08",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 5
+  },
+  {
+   "HoleNo": "10",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 5
+  },
+  {
+   "HoleNo": "11",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "11",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 2
+  },
+  {
+   "HoleNo": "12",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 3
+  },
+  {
+   "HoleNo": "13",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "13",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 4
+  },
+  {
+   "HoleNo": "15",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "16",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "16",
+   "Type": null,
+   "FinalShape": "No",
+   "n": 3
+  },
+  {
+   "HoleNo": "17",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "SG",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  }
+ ],
+ "Bunker": [
+  {
+   "HoleNo": " ",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 15
+  },
+  {
+   "HoleNo": "01",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "01",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "01",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "01",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "02",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "02",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 9
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 4
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "A",
+   "Final_Shape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "B",
+   "Final_Shape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "C",
+   "Final_Shape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 4
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "E",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 3
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 3
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": " ",
+   "Final_Shape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "11",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 10
+  },
+  {
+   "HoleNo": "13",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "14",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "16",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 6
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "18",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 5
+  },
+  {
+   "HoleNo": "18",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "18",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "18",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "DR",
+   "LOP_Location": " ",
+   "Final_Shape": " ",
+   "n": 1
+  }
+ ],
+ "Green": [
+  {
+   "Final_Shape": " ",
+   "HoleNo": " ",
+   "Type": " ",
+   "n": 2
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "01",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "02",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "03",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "04",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "05",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "06",
+   "Type": " ",
+   "n": 2
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "07",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "08",
+   "Type": " ",
+   "n": 2
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "09",
+   "Type": " ",
+   "n": 2
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "12",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "14",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "15",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "16",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "17",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": " ",
+   "HoleNo": "18",
+   "Type": " ",
+   "n": 2
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": " ",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "01",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "02",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "03",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "04",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "05",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "07",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "10",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "11",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "13",
+   "Type": " ",
+   "n": 1
+  }
+ ],
+ "Solid Drainage Pipe": [
+  {
+   "Size": " ",
+   "Type": null,
+   "n": 1
+  },
+  {
+   "Size": "4\"",
+   "Type": null,
+   "n": 2
+  }
+ ],
+ "Lateral": [
+  {
+   "Size": " ",
+   "Material": null,
+   "n": 4
+  },
+  {
+   "Size": "2\"",
+   "Material": null,
+   "n": 12
+  },
+  {
+   "Size": "2\"",
+   "Material": "HDPE",
+   "n": 1
+  }
+ ],
+ "Line Generic": [
+  {
+   "n": 288
+  }
+ ],
+ "Mainline": [
+  {
+   "Type": null,
+   "Pipe_Size": " ",
+   "n": 7
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": " ",
+   "n": 16
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "06\"",
+   "n": 1
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "06\"",
+   "n": 7
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "08\"",
+   "n": 1
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "08\"",
+   "n": 11
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "10\"",
+   "n": 1
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "12\"",
+   "n": 2
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "18\"",
+   "n": 1
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "Other",
+   "n": 3
+  }
+ ],
+ "Perf Drainage Pipe": [
+  {
+   "Size": " ",
+   "Type": null,
+   "n": 3
+  },
+  {
+   "Size": "4\"",
+   "Type": null,
+   "n": 165
+  }
+ ],
+ "Cart Path Centerline": [
+  {
+   "Width": " ",
+   "n": 23
+  },
+  {
+   "Width": "6'",
+   "n": 37
+  },
+  {
+   "Width": "8'",
+   "n": 1
+  }
+ ],
+ "Wire Trench": [
+  {
+   "n": 1
+  }
+ ],
+ "Power Wire": [
+  {
+   "Size": null,
+   "n": 9
+  }
+ ],
+ "Basin": [
+  {
+   "Size": " ",
+   "n": 1
+  }
+ ],
+ "Electric Valve": [
+  {
+   "Size": null,
+   "n": 4
+  },
+  {
+   "Size": "1\"",
+   "n": 50
+  },
+  {
+   "Size": "2\"",
+   "n": 40
+  }
+ ],
+ "Lateral Valve": [
+  {
+   "Size": null,
+   "n": 32
+  },
+  {
+   "Size": "2\"",
+   "n": 361
+  }
+ ],
+ "Hunter Head": [
+  {
+   "HeadType": "I-20-06 Rotor",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 12
+  },
+  {
+   "HeadType": "I-20-06 Rotor",
+   "Nozzle": null,
+   "HoleNo": "SG",
+   "n": 6
+  }
+ ],
+ "Full Circle": [
+  {
+   "n": 2
+  }
+ ],
+ "Air Relief Valve": [
+  {
+   "n": 6
+  }
+ ],
+ "Sprinkler-Generic": [
+  {
+   "n": 782
+  }
+ ],
+ "Wire Splice": [
+  {
+   "Type": "Signal",
+   "n": 2
+  }
+ ],
+ "Flushout": [
+  {
+   "n": 7
+  }
+ ],
+ "Isolation Valve": [
+  {
+   "Size": null,
+   "n": 5
+  },
+  {
+   "Size": "06\"",
+   "n": 6
+  },
+  {
+   "Size": "08\"",
+   "n": 14
+  },
+  {
+   "Size": "10\"",
+   "n": 4
+  }
+ ],
+ "Part Circle": [
+  {
+   "n": 86
+  }
+ ],
+ "Quick Coupler": [
+  {
+   "QCV_Size": " ",
+   "n": 67
+  },
+  {
+   "QCV_Size": "1\"",
+   "n": 81
+  },
+  {
+   "QCV_Size": "1.5\"",
+   "n": 21
+  }
+ ],
+ "Rain Bird Head": [
+  {
+   "Head_Type": "5004 Rotor",
+   "HoleNo": "16",
+   "Nozzle": null,
+   "n": 4
+  },
+  {
+   "Head_Type": "5004 Rotor",
+   "HoleNo": "17",
+   "Nozzle": null,
+   "n": 37
+  },
+  {
+   "Head_Type": "5004 Rotor",
+   "HoleNo": "18",
+   "Nozzle": null,
+   "n": 88
+  },
+  {
+   "Head_Type": "5004 Rotor",
+   "HoleNo": "SG",
+   "Nozzle": null,
+   "n": 209
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": null,
+   "Nozzle": null,
+   "n": 4
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "01",
+   "Nozzle": null,
+   "n": 14
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "02",
+   "Nozzle": null,
+   "n": 28
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "03",
+   "Nozzle": null,
+   "n": 12
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "04",
+   "Nozzle": null,
+   "n": 12
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "04",
+   "Nozzle": "18",
+   "n": 1
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "05",
+   "Nozzle": null,
+   "n": 27
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "06",
+   "Nozzle": null,
+   "n": 23
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "07",
+   "Nozzle": null,
+   "n": 2
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "08",
+   "Nozzle": null,
+   "n": 43
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "09",
+   "Nozzle": null,
+   "n": 15
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "10",
+   "Nozzle": null,
+   "n": 29
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "11",
+   "Nozzle": null,
+   "n": 14
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "12",
+   "Nozzle": null,
+   "n": 48
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "14",
+   "Nozzle": null,
+   "n": 37
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "15",
+   "Nozzle": null,
+   "n": 4
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "16",
+   "Nozzle": null,
+   "n": 31
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "17",
+   "Nozzle": null,
+   "n": 12
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "18",
+   "Nozzle": null,
+   "n": 20
+  },
+  {
+   "Head_Type": "702",
+   "HoleNo": "SG",
+   "Nozzle": null,
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": null,
+   "Nozzle": null,
+   "n": 34
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": null,
+   "Nozzle": "18",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "01",
+   "Nozzle": null,
+   "n": 63
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "01",
+   "Nozzle": "18",
+   "n": 6
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "02",
+   "Nozzle": null,
+   "n": 73
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "02",
+   "Nozzle": "18",
+   "n": 10
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "03",
+   "Nozzle": null,
+   "n": 31
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "03",
+   "Nozzle": "20",
+   "n": 2
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "04",
+   "Nozzle": null,
+   "n": 79
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "04",
+   "Nozzle": "18",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "04",
+   "Nozzle": "20",
+   "n": 22
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "05",
+   "Nozzle": null,
+   "n": 61
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "05",
+   "Nozzle": "18",
+   "n": 31
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "06",
+   "Nozzle": null,
+   "n": 58
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "06",
+   "Nozzle": "18",
+   "n": 2
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "06",
+   "Nozzle": "20",
+   "n": 7
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "06",
+   "Nozzle": "22",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "06",
+   "Nozzle": "28",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "07",
+   "Nozzle": null,
+   "n": 23
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "07",
+   "Nozzle": "18",
+   "n": 11
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "07",
+   "Nozzle": "20",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "07",
+   "Nozzle": "22",
+   "n": 2
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "08",
+   "Nozzle": null,
+   "n": 143
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "08",
+   "Nozzle": "18",
+   "n": 5
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "09",
+   "Nozzle": null,
+   "n": 36
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "09",
+   "Nozzle": "18",
+   "n": 3
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "09",
+   "Nozzle": "20",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "10",
+   "Nozzle": null,
+   "n": 69
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "10",
+   "Nozzle": "18",
+   "n": 10
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "11",
+   "Nozzle": null,
+   "n": 57
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "11",
+   "Nozzle": "18",
+   "n": 6
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "11",
+   "Nozzle": "26",
+   "n": 1
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "12",
+   "Nozzle": null,
+   "n": 92
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "13",
+   "Nozzle": null,
+   "n": 50
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "14",
+   "Nozzle": null,
+   "n": 85
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "15",
+   "Nozzle": null,
+   "n": 27
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "15",
+   "Nozzle": "18",
+   "n": 28
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "16",
+   "Nozzle": null,
+   "n": 69
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "17",
+   "Nozzle": null,
+   "n": 79
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "18",
+   "Nozzle": null,
+   "n": 84
+  },
+  {
+   "Head_Type": "752",
+   "HoleNo": "SG",
+   "Nozzle": null,
+   "n": 356
+  }
+ ],
+ "Point Generic": [
+  {
+   "n": 1278
+  }
+ ],
+ "Point of Connection": [
+  {
+   "n": 3
+  }
+ ],
+ "Drain Valve": [
+  {
+   "Size": null,
+   "n": 44
+  }
+ ],
+ "Drip Valve": [
+  {
+   "Size": null,
+   "n": 94
+  }
+ ],
+ "Bury Pit": [
+  {
+   "esrignss_worst_fixtype": null,
+   "n": 11
+  },
+  {
+   "esrignss_worst_fixtype": 1,
+   "n": 1
+  },
+  {
+   "esrignss_worst_fixtype": 4,
+   "n": 11
+  }
+ ]
+}

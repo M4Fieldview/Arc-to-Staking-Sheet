@@ -1,0 +1,11268 @@
+{
+ "title": "2603 Kettle Forge Staking",
+ "layers": {
+  "Wetland 10_29_25": {
+   "name": "Wetland_10_29_25",
+   "objectIdField": "FID",
+   "fields": [
+    {
+     "name": "FID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "LAYER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    }
+   ]
+  },
+  "10_23_25 Feature Shapefiles": {
+   "name": "10_23_25_Feature_Shapefiles",
+   "objectIdField": "FID",
+   "fields": [
+    {
+     "name": "FID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ELEVATION",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "LAYER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    }
+   ]
+  },
+  "Area Generic": {
+   "name": "Area Generic",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeSingle"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Cart Path Area": {
+   "name": "Cart Path Area",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Lake": {
+   "name": "Lake",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Initial Disturbance": {
+   "name": "Initial Disturbance",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Native": {
+   "name": "Native",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Rough": {
+   "name": "Rough",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Area_Adjusted",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Sod": {
+   "name": "Sod",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Hole_No",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "Clubhouse",
+        "name": "Clubhouse"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Sod_Type",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Grower",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Species",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Variety",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Fairway": {
+   "name": "Fairway",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Elevation_Min",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Elevation_Max",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Species",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Variety",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Supp",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Rate",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Grassing_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HOC",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Aerification_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Disruption_to_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Topdress_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Topdress_Volume",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Internal_Perf_Pipe",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Area_Adjusted",
+     "type": "esriFieldTypeDouble"
+    }
+   ]
+  },
+  "Tee": {
+   "name": "Tee",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Designation",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Turf_Species",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Variety",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Supp",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Rate",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Range Tee",
+        "name": "Range Tee"
+       },
+       {
+        "code": "Childs Tee",
+        "name": "Childs Tee"
+       }
+      ]
+     }
+    },
+    {
+     "name": "FinalShape",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Yes",
+        "name": "Yes"
+       },
+       {
+        "code": "No",
+        "name": "No"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HOC",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Grass_Species",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Grassing_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Disruption_to_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Aerification_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Topdress_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Topdress_Volume",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Internal_Perf_Pipe",
+     "type": "esriFieldTypeDouble"
+    }
+   ]
+  },
+  "Bunker": {
+   "name": "Bunker",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "LOP_Location",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "A",
+        "name": "A"
+       },
+       {
+        "code": "B",
+        "name": "B"
+       },
+       {
+        "code": "C",
+        "name": "C"
+       },
+       {
+        "code": "D",
+        "name": "D"
+       },
+       {
+        "code": "E",
+        "name": "E"
+       },
+       {
+        "code": "F",
+        "name": "F"
+       },
+       {
+        "code": "G",
+        "name": "G"
+       },
+       {
+        "code": "H",
+        "name": "H"
+       },
+       {
+        "code": "I",
+        "name": "I"
+       },
+       {
+        "code": "J",
+        "name": "J"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Final_Shape",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Yes",
+        "name": "Yes"
+       },
+       {
+        "code": "No",
+        "name": "No"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Liner_Type",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Liner_Supp",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Liner_Quantity",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Liner_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Type",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Supplier",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Quantity",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Testing_Doc",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Supplier",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Volume_Installed",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Compacted_Depth_Installed",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Internal_Perf_Pipe",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Area_Adjusted",
+     "type": "esriFieldTypeDouble"
+    }
+   ]
+  },
+  "Bunker Island": {
+   "name": "Bunker Island",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "IslandNumber",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "1",
+        "name": "1"
+       },
+       {
+        "code": "2",
+        "name": "2"
+       },
+       {
+        "code": "3",
+        "name": "3"
+       },
+       {
+        "code": "4",
+        "name": "4"
+       },
+       {
+        "code": "5",
+        "name": "5"
+       },
+       {
+        "code": "6",
+        "name": "6"
+       },
+       {
+        "code": "7",
+        "name": "7"
+       },
+       {
+        "code": "8",
+        "name": "8"
+       },
+       {
+        "code": "9",
+        "name": "9"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Green": {
+   "name": "Green",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Final_Shape",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Yes",
+        "name": "Yes"
+       },
+       {
+        "code": "No",
+        "name": "No"
+       }
+      ]
+     }
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Gravel_Type",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Gravel_Supp",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Gravel_Quant",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Gravel_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Type",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Supp",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Qantity",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Sand_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Testing_Doc",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Supp",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Rate",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Putting Green",
+        "name": "Putting Green"
+       },
+       {
+        "code": "Chipping Green",
+        "name": "Chipping Green"
+       },
+       {
+        "code": "DR Target",
+        "name": "DR Target"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HOC",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Species",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Turf_Variety",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Grassing_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Disruption_to_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Aerification_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Topdress_Date",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Topdress_Volume",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Pin_Areas",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Pin_Percent_Areas",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Internal_Perf_Pipe",
+     "type": "esriFieldTypeDouble"
+    }
+   ]
+  },
+  "Building": {
+   "name": "Building",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "BuildingType",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Pump Station",
+        "name": "Pump Station"
+       },
+       {
+        "code": "Club House",
+        "name": "Club House"
+       },
+       {
+        "code": "Restroom",
+        "name": "Restroom"
+       },
+       {
+        "code": "Halfway House",
+        "name": "Halfway House"
+       },
+       {
+        "code": "Maintenance",
+        "name": "Maintenance"
+       },
+       {
+        "code": "Cart Barn",
+        "name": "Cart Barn"
+       },
+       {
+        "code": "Misc",
+        "name": "Misc"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Solid Drainage Pipe": {
+   "name": "Solid Drainage Pipe",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "2\"",
+        "name": "2\""
+       },
+       {
+        "code": "3\"",
+        "name": "3\""
+       },
+       {
+        "code": "4\"",
+        "name": "4\""
+       },
+       {
+        "code": "6\"",
+        "name": "6\""
+       },
+       {
+        "code": "8\"",
+        "name": "8\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       },
+       {
+        "code": "12\"",
+        "name": "12\""
+       },
+       {
+        "code": "14\"",
+        "name": "14\""
+       },
+       {
+        "code": "16\"",
+        "name": "16\""
+       },
+       {
+        "code": "18\"",
+        "name": "18\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "HDPE",
+        "name": "HDPE"
+       },
+       {
+        "code": "PVC",
+        "name": "PVC"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Silt Fence": {
+   "name": "Silt Fence",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Lateral": {
+   "name": "Lateral",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": ".5\"",
+        "name": ".5\""
+       },
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       },
+       {
+        "code": "2.5\"",
+        "name": "2.5\""
+       },
+       {
+        "code": "3\"",
+        "name": "3\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "DR_Rating",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Warranty_Workmanship",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Warranty_Material",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Material",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "HDPE",
+        "name": "HDPE"
+       },
+       {
+        "code": "PVC",
+        "name": "PVC"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Water_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Potable",
+        "name": "Potable"
+       },
+       {
+        "code": "Non-Potable",
+        "name": "Non-Potable"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Line Generic": {
+   "name": "Line Generic",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Mainline": {
+   "name": "Mainline",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "HDPE",
+        "name": "HDPE"
+       },
+       {
+        "code": "PVC",
+        "name": "PVC"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Pipe_Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "02\"",
+        "name": "2\""
+       },
+       {
+        "code": "02.5\"",
+        "name": "2.5\""
+       },
+       {
+        "code": "03\"",
+        "name": "3\""
+       },
+       {
+        "code": "04\"",
+        "name": "4\""
+       },
+       {
+        "code": "06\"",
+        "name": "6\""
+       },
+       {
+        "code": "08\"",
+        "name": "8\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       },
+       {
+        "code": "12\"",
+        "name": "12\""
+       },
+       {
+        "code": "14\"",
+        "name": "14\""
+       },
+       {
+        "code": "16\"",
+        "name": "16\""
+       },
+       {
+        "code": "18\"",
+        "name": "18\""
+       },
+       {
+        "code": "20\"",
+        "name": "20\""
+       },
+       {
+        "code": "22\"",
+        "name": "22\""
+       },
+       {
+        "code": "24\"",
+        "name": "24\""
+       },
+       {
+        "code": "30\"",
+        "name": "30\""
+       },
+       {
+        "code": "Other",
+        "name": "Other"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "DR_Rating",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Warranty_Workmanship",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Warranty_Material",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Water_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Potable",
+        "name": "Potable"
+       },
+       {
+        "code": "Non-Potable",
+        "name": "Non-Potable"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Creek": {
+   "name": "Creek",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Perf Drainage Pipe": {
+   "name": "Perf Drainage Pipe",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "2\"",
+        "name": "2\""
+       },
+       {
+        "code": "4\"",
+        "name": "4\""
+       },
+       {
+        "code": "6\"",
+        "name": "6\""
+       },
+       {
+        "code": "8\"",
+        "name": "8\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "HDPE",
+        "name": "HDPE"
+       },
+       {
+        "code": "PVC",
+        "name": "PVC"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Bridge": {
+   "name": "Bridge",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Installer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Material",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Load_Rating",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Cart Path Centerline": {
+   "name": "Cart Path Centerline",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Width",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "3'",
+        "name": "3'"
+       },
+       {
+        "code": "4'",
+        "name": "4'"
+       },
+       {
+        "code": "5'",
+        "name": "5'"
+       },
+       {
+        "code": "6'",
+        "name": "6'"
+       },
+       {
+        "code": "7' ",
+        "name": "7'"
+       },
+       {
+        "code": "8'",
+        "name": "8'"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Wire Trench": {
+   "name": "Wire Trench",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Depth",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Voltage",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarningTape",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Comm Cable": {
+   "name": "Comm Cable",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "#14",
+        "name": "#14"
+       },
+       {
+        "code": "#12",
+        "name": "#12"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Color",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Red",
+        "name": "Red"
+       },
+       {
+        "code": "Blue",
+        "name": "Blue"
+       },
+       {
+        "code": "Green",
+        "name": "Green"
+       },
+       {
+        "code": "Yellow",
+        "name": "Yellow"
+       },
+       {
+        "code": "Black",
+        "name": "Black"
+       },
+       {
+        "code": "Orange",
+        "name": "Orange"
+       },
+       {
+        "code": "Pink",
+        "name": "Pink"
+       },
+       {
+        "code": "Purple",
+        "name": "Purple"
+       },
+       {
+        "code": "Grey",
+        "name": "Grey"
+       },
+       {
+        "code": "White",
+        "name": "White"
+       },
+       {
+        "code": "Brown",
+        "name": "Brown"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Pump Cable": {
+   "name": "Pump Cable",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Weather Station Cable": {
+   "name": "Weather Station Cable",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Power Wire": {
+   "name": "Power Wire",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "#00",
+        "name": "#00"
+       },
+       {
+        "code": "#0",
+        "name": "#0"
+       },
+       {
+        "code": "#2",
+        "name": "#2"
+       },
+       {
+        "code": "#4",
+        "name": "#4"
+       },
+       {
+        "code": "#6",
+        "name": "#6"
+       },
+       {
+        "code": "#8",
+        "name": "#8"
+       },
+       {
+        "code": "#10",
+        "name": "#10"
+       },
+       {
+        "code": "#12",
+        "name": "#12"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Basin": {
+   "name": "Basin",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "4\"",
+        "name": "4\""
+       },
+       {
+        "code": "8\"",
+        "name": "8\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       },
+       {
+        "code": "12\"",
+        "name": "12\""
+       },
+       {
+        "code": "14\"",
+        "name": "14\""
+       },
+       {
+        "code": "15\"",
+        "name": "15\""
+       },
+       {
+        "code": "16\"",
+        "name": "16\""
+       },
+       {
+        "code": "18\"",
+        "name": "18\""
+       },
+       {
+        "code": "24\"",
+        "name": "24\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Backflow": {
+   "name": "Backflow",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Electric Valve": {
+   "name": "Electric_Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "PartNo",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Address",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.25\"",
+        "name": "1.25\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Water_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Potable",
+        "name": "Potable"
+       },
+       {
+        "code": "Non-Potable",
+        "name": "Non-Potable"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "2 Wire Surge Device": {
+   "name": "2 Wire Surge Device",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Lateral Valve": {
+   "name": "Lateral_Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": ".5\"",
+        "name": ".5\""
+       },
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       },
+       {
+        "code": "2.5\"",
+        "name": "2.5\""
+       },
+       {
+        "code": "3\"",
+        "name": "3\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "PartNo",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Address",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "ValveLocation",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Green",
+        "name": "Green"
+       },
+       {
+        "code": "Tee",
+        "name": "Tee"
+       },
+       {
+        "code": "Fairway",
+        "name": "Fairway"
+       },
+       {
+        "code": "Bunker",
+        "name": "Bunker"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Hunter Head": {
+   "name": "Hunter_Head",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "HeadType",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "I-20-04 Rotor",
+        "name": "I-20-04 Rotor"
+       },
+       {
+        "code": "I-20-06 Rotor",
+        "name": "I-20-06 Rotor"
+       },
+       {
+        "code": "I-25-04 Rotor",
+        "name": "I-25-04 Rotor"
+       },
+       {
+        "code": "I-25-06 Rotor",
+        "name": "I-25-06 Rotor"
+       },
+       {
+        "code": "I-40-04 Rotor",
+        "name": "I-40-04 Rotor"
+       },
+       {
+        "code": "I-40-06 Rotor",
+        "name": "I-40-06 Rotor"
+       },
+       {
+        "code": "PROS Spray",
+        "name": "PROS Spray"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Number",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Nozzle",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "30",
+        "name": "30"
+       },
+       {
+        "code": "31",
+        "name": "31"
+       },
+       {
+        "code": "32",
+        "name": "32"
+       },
+       {
+        "code": "33",
+        "name": "33"
+       },
+       {
+        "code": "34",
+        "name": "34"
+       },
+       {
+        "code": "35",
+        "name": "35"
+       },
+       {
+        "code": "36",
+        "name": "36"
+       },
+       {
+        "code": "37",
+        "name": "37"
+       },
+       {
+        "code": "51",
+        "name": "51"
+       },
+       {
+        "code": "52",
+        "name": "52"
+       },
+       {
+        "code": "53",
+        "name": "53"
+       },
+       {
+        "code": "54",
+        "name": "54"
+       },
+       {
+        "code": "55",
+        "name": "55"
+       },
+       {
+        "code": "56",
+        "name": "56"
+       },
+       {
+        "code": "57",
+        "name": "57"
+       },
+       {
+        "code": "58",
+        "name": "58"
+       },
+       {
+        "code": "59",
+        "name": "59"
+       },
+       {
+        "code": "3134",
+        "name": "3134"
+       },
+       {
+        "code": "3537",
+        "name": "3537"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarrantyDate_Install",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarrantyDate_Man",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "GPM",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Radius",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Pressure",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Decoder_Address",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Water_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Potable",
+        "name": "Potable"
+       },
+       {
+        "code": "Non-Potable",
+        "name": "Non-Potable"
+       }
+      ]
+     }
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    }
+   ]
+  },
+  "Full Circle": {
+   "name": "Full_Circle",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Air Relief Valve": {
+   "name": "Air Relief Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Sprinkler_Generic": {
+   "name": "Sprinkler-Generic",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Daylight": {
+   "name": "Daylight",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Wire Splice": {
+   "name": "Wire_Splice",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Power",
+        "name": "Power"
+       },
+       {
+        "code": "Signal",
+        "name": "Signal"
+       },
+       {
+        "code": "Com",
+        "name": "Com"
+       }
+      ]
+     }
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Flushout": {
+   "name": "Flushout",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Pump Station": {
+   "name": "Pump Station",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Filtration",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Filter_Change_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Service_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Commissioning_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Winterization_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Isolation Valve": {
+   "name": "Isolation_Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "02\"",
+        "name": "2\""
+       },
+       {
+        "code": "02.5\"",
+        "name": "2.5\""
+       },
+       {
+        "code": "03\"",
+        "name": "3\""
+       },
+       {
+        "code": "04\"",
+        "name": "4\""
+       },
+       {
+        "code": "06\"",
+        "name": "6\""
+       },
+       {
+        "code": "08\"",
+        "name": "8\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       },
+       {
+        "code": "12\"",
+        "name": "12\""
+       },
+       {
+        "code": "14\"",
+        "name": "14\""
+       },
+       {
+        "code": "16\"",
+        "name": "16\""
+       },
+       {
+        "code": "18\"",
+        "name": "18\""
+       },
+       {
+        "code": "20\"",
+        "name": "20\""
+       },
+       {
+        "code": "22\"",
+        "name": "22\""
+       },
+       {
+        "code": "24\"",
+        "name": "24\""
+       },
+       {
+        "code": "30\"",
+        "name": "30\""
+       },
+       {
+        "code": "Other",
+        "name": "Other"
+       }
+      ]
+     }
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "PartNo",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Address",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Existing Head": {
+   "name": "Existing Head",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Well": {
+   "name": "Well",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Link_well",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Depth",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Casing_Size",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Motor_Man",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HP",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "GPM",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Part Circle": {
+   "name": "Part_Circle",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Quick Coupler": {
+   "name": "Quick_Coupler",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "QCV_Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Rain Bird Head": {
+   "name": "Rain Bird Head",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Head_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "1804 Spray",
+        "name": "1804 Spray"
+       },
+       {
+        "code": "1806 Spray",
+        "name": "1806 Spray"
+       },
+       {
+        "code": "1812 Spray",
+        "name": "1812 Spray"
+       },
+       {
+        "code": "5004 Rotor",
+        "name": "5004 Rotor"
+       },
+       {
+        "code": "5006 Rotor",
+        "name": "5006 Rotor"
+       },
+       {
+        "code": "552 Block",
+        "name": "552 Block"
+       },
+       {
+        "code": "702 Block",
+        "name": "702 Block"
+       },
+       {
+        "code": "702",
+        "name": "702"
+       },
+       {
+        "code": "752",
+        "name": "752"
+       },
+       {
+        "code": "752 Block",
+        "name": "752 Block"
+       },
+       {
+        "code": "952",
+        "name": "952"
+       },
+       {
+        "code": "RD-04 Spray",
+        "name": "RD-04 SPray"
+       },
+       {
+        "code": "RD-06 Spray",
+        "name": "RD-06 Spray"
+       },
+       {
+        "code": "RD-12 Spray",
+        "name": "RD-12 Spray"
+       },
+       {
+        "code": "Falcon",
+        "name": "Falcon"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Number",
+     "type": "esriFieldTypeInteger"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Nozzle",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "20",
+        "name": "20"
+       },
+       {
+        "code": "22",
+        "name": "22"
+       },
+       {
+        "code": "24",
+        "name": "24"
+       },
+       {
+        "code": "26",
+        "name": "26"
+       },
+       {
+        "code": "28",
+        "name": "28"
+       },
+       {
+        "code": "30",
+        "name": "30"
+       },
+       {
+        "code": "32",
+        "name": "32"
+       },
+       {
+        "code": "36",
+        "name": "36"
+       },
+       {
+        "code": "40",
+        "name": "40"
+       },
+       {
+        "code": "44",
+        "name": "44"
+       },
+       {
+        "code": "46",
+        "name": "46"
+       },
+       {
+        "code": "48",
+        "name": "48"
+       },
+       {
+        "code": "51",
+        "name": "51"
+       },
+       {
+        "code": "52",
+        "name": "52"
+       },
+       {
+        "code": "53",
+        "name": "53"
+       },
+       {
+        "code": "54",
+        "name": "54"
+       },
+       {
+        "code": "56",
+        "name": "56"
+       },
+       {
+        "code": "60",
+        "name": "60"
+       },
+       {
+        "code": "64",
+        "name": "64"
+       }
+      ]
+     }
+    },
+    {
+     "name": "StationNumber",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarrantyDate_Install",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarrantyDate_Man",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "GPM",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Radius",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Pressure",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Decoder_Address",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Water_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Potable",
+        "name": "Potable"
+       },
+       {
+        "code": "Non-Potable",
+        "name": "Non-Potable"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    }
+   ]
+  },
+  "Sump": {
+   "name": "Sump",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "4\"",
+        "name": "4\""
+       },
+       {
+        "code": "8\"",
+        "name": "8\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       },
+       {
+        "code": "12\"",
+        "name": "12\""
+       },
+       {
+        "code": "14\"",
+        "name": "14\""
+       },
+       {
+        "code": "15\"",
+        "name": "15\""
+       },
+       {
+        "code": "16\"",
+        "name": "16\""
+       },
+       {
+        "code": "18\"",
+        "name": "18\""
+       },
+       {
+        "code": "24\"",
+        "name": "24\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Ground Plate": {
+   "name": "Ground Plate",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Number",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Satellite": {
+   "name": "Satellite",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Number",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Stations",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "72",
+        "name": "72"
+       },
+       {
+        "code": "64",
+        "name": "64"
+       },
+       {
+        "code": "56",
+        "name": "56"
+       },
+       {
+        "code": "48",
+        "name": "48"
+       },
+       {
+        "code": "40",
+        "name": "40"
+       },
+       {
+        "code": "32",
+        "name": "32"
+       },
+       {
+        "code": "24",
+        "name": "24"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Toro Head": {
+   "name": "Toro_Head",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "HeadType",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "INF34",
+        "name": "INF34"
+       },
+       {
+        "code": "INF35",
+        "name": "INF35"
+       },
+       {
+        "code": "INF54",
+        "name": "INF54"
+       },
+       {
+        "code": "INF55",
+        "name": "INF55"
+       },
+       {
+        "code": "FLX34",
+        "name": "FLX34"
+       },
+       {
+        "code": "FLX35",
+        "name": "FLX35"
+       },
+       {
+        "code": "FLX54",
+        "name": "FLX54"
+       },
+       {
+        "code": "FLX55",
+        "name": "FLX55"
+       },
+       {
+        "code": "FLX34 Block",
+        "name": "FLX34 Block"
+       },
+       {
+        "code": "FLX35 Block",
+        "name": "FLX35 Block"
+       },
+       {
+        "code": "FLX35-6B Block",
+        "name": "FLX35-6B Block"
+       },
+       {
+        "code": "590GF-4 Spray",
+        "name": "590GF-4 Spray"
+       },
+       {
+        "code": "590GF-6 Spray",
+        "name": "590GF-6 Spray"
+       },
+       {
+        "code": "590GF-12 Spray",
+        "name": "590GF-12 Spray"
+       },
+       {
+        "code": "T7 Rotor",
+        "name": "T7 Rotor"
+       },
+       {
+        "code": "T5 Rotor",
+        "name": "T5 Rotor"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Text",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Number",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Nozzle",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "30",
+        "name": "30"
+       },
+       {
+        "code": "31",
+        "name": "31"
+       },
+       {
+        "code": "32",
+        "name": "32"
+       },
+       {
+        "code": "33",
+        "name": "33"
+       },
+       {
+        "code": "34",
+        "name": "34"
+       },
+       {
+        "code": "35",
+        "name": "35"
+       },
+       {
+        "code": "36",
+        "name": "36"
+       },
+       {
+        "code": "37",
+        "name": "37"
+       },
+       {
+        "code": "51",
+        "name": "51"
+       },
+       {
+        "code": "52",
+        "name": "52"
+       },
+       {
+        "code": "53",
+        "name": "53"
+       },
+       {
+        "code": "54",
+        "name": "54"
+       },
+       {
+        "code": "55",
+        "name": "55"
+       },
+       {
+        "code": "56",
+        "name": "56"
+       },
+       {
+        "code": "57",
+        "name": "57"
+       },
+       {
+        "code": "58",
+        "name": "58"
+       },
+       {
+        "code": "59",
+        "name": "59"
+       },
+       {
+        "code": "3134",
+        "name": "3134"
+       },
+       {
+        "code": "3537",
+        "name": "3537"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Manufacturer",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Distributor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarrantyDate_Install",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "WarrantyDate_Man",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "GPM",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Radius",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Pressure",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Decoder_Address",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "BatchNo",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Water_Type",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "Potable",
+        "name": "Potable"
+       },
+       {
+        "code": "Non-Potable",
+        "name": "Non-Potable"
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    }
+   ]
+  },
+  "Point Generic": {
+   "name": "Point_Generic",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Point of Connection": {
+   "name": "Point of Connection",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Drain Valve": {
+   "name": "Drain_Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "Description",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "ESRIGNSS_RECEIVER",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "ESRIGNSS_H_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "ESRIGNSS_V_RMS",
+     "type": "esriFieldTypeDouble"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "3\"",
+        "name": "3\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Blow Valve": {
+   "name": "Blow Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Notes",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "LastService",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Drip Valve": {
+   "name": "Drip Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.25\"",
+        "name": "1.25\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Bunker Valve": {
+   "name": "Bunker Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Winter Water Lateral Valve": {
+   "name": "Winter Water Lateral Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Winter Water Hydrant": {
+   "name": "Winter Water Hydrant",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "Blow Off Valve": {
+   "name": "Blow Off Valve",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": ".5\"",
+        "name": ".5\""
+       },
+       {
+        "code": "1\"",
+        "name": "1\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       },
+       {
+        "code": "2.5\"",
+        "name": "2.5\""
+       },
+       {
+        "code": "3\"",
+        "name": "3\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "PRV": {
+   "name": "PRV",
+   "objectIdField": "OBJECTID",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID"
+    },
+    {
+     "name": "Size",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "12\"",
+        "name": "12\""
+       },
+       {
+        "code": "10\"",
+        "name": "10\""
+       },
+       {
+        "code": "8\"",
+        "name": "8\""
+       },
+       {
+        "code": "6\"",
+        "name": "6\""
+       },
+       {
+        "code": "4\"",
+        "name": "4\""
+       },
+       {
+        "code": "3\"",
+        "name": "3\""
+       },
+       {
+        "code": "2\"",
+        "name": "2\""
+       },
+       {
+        "code": "1.5\"",
+        "name": "1.5\""
+       },
+       {
+        "code": "1\"",
+        "name": "1\""
+       }
+      ]
+     }
+    },
+    {
+     "name": "Collection_Date",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID"
+    },
+    {
+     "name": "CreationDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Creator",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "EditDate",
+     "type": "esriFieldTypeDate"
+    },
+    {
+     "name": "Editor",
+     "type": "esriFieldTypeString"
+    },
+    {
+     "name": "HoleNo",
+     "type": "esriFieldTypeString",
+     "domain": {
+      "type": "codedValue",
+      "codedValues": [
+       {
+        "code": "01",
+        "name": "01"
+       },
+       {
+        "code": "02",
+        "name": "02"
+       },
+       {
+        "code": "03",
+        "name": "03"
+       },
+       {
+        "code": "04",
+        "name": "04"
+       },
+       {
+        "code": "05",
+        "name": "05"
+       },
+       {
+        "code": "06",
+        "name": "06"
+       },
+       {
+        "code": "07",
+        "name": "07"
+       },
+       {
+        "code": "08",
+        "name": "08"
+       },
+       {
+        "code": "09",
+        "name": "09"
+       },
+       {
+        "code": "10",
+        "name": "10"
+       },
+       {
+        "code": "11",
+        "name": "11"
+       },
+       {
+        "code": "12",
+        "name": "12"
+       },
+       {
+        "code": "13",
+        "name": "13"
+       },
+       {
+        "code": "14",
+        "name": "14"
+       },
+       {
+        "code": "15",
+        "name": "15"
+       },
+       {
+        "code": "16",
+        "name": "16"
+       },
+       {
+        "code": "17",
+        "name": "17"
+       },
+       {
+        "code": "18",
+        "name": "18"
+       },
+       {
+        "code": "CH",
+        "name": "CH"
+       },
+       {
+        "code": "SG",
+        "name": "SG"
+       },
+       {
+        "code": "PG",
+        "name": "PG"
+       },
+       {
+        "code": "CG",
+        "name": "CG"
+       },
+       {
+        "code": "DR",
+        "name": "DR"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

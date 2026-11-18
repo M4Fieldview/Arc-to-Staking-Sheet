@@ -7,20 +7,29 @@
 ## How it will work
 1. The PM opens the site and signs in with their ArcGIS account.
 2. They drag in their hole-summary sheet (with the design quantities filled in on **DESIGN TOTALS**) and pick the staking web map from a searchable list (My Organization / My Content / My Favorites). The search starts from the project number in the file name.
-3. The page counts staked features by `HoleNo` for each material column and writes them into the **S** columns of the **STAKING TOTALS** tab. Formulas and formatting are kept, and **DESIGN TOTALS** and **MISC. CHANGES** are not changed. The PM copies design numbers into the staking tab's **D** columns by hand, hole by hole as work starts, so its TOTAL row only compares the holes in progress.
-4. The PM downloads the filled-in sheet, along with a short report of points that couldn't be placed (e.g. blank `HoleNo`).
+3. The page shows what each material column will count, worked out from the column headers (see below). The PM can change any column before syncing.
+4. The page counts staked features by `HoleNo` for each material column and writes them into the **S** columns of the **STAKING TOTALS** tab. Formulas and formatting are kept, and **DESIGN TOTALS** and **MISC. CHANGES** are not changed. The PM copies design numbers into the staking tab's **D** columns by hand, hole by hole as work starts, so its TOTAL row only compares the holes in progress.
+5. The PM downloads the filled-in sheet, along with a short report of points that couldn't be placed (e.g. blank `HoleNo`).
+6. The choices are saved in a hidden **MAPPING** tab of the downloaded sheet, so the next sync on that sheet starts from them.
 
-A hidden **MAPPING** tab in the sheet template tells the tool which layer and filter feed each column (e.g. `Toro Head` where `HeadType='INF34' AND Nozzle='33'`).
+## How columns are matched
+There's no master list of heads and nozzles. The tool reads each material header on DESIGN TOTALS and looks it up in the **dropdown lists of the chosen web map's layers**, so a new head type works as soon as it's in the map's dropdown.
+- **Heads:** `Toro FLX34-34` → Toro Head, HeadType `FLX34`, Nozzle `34`. `RB 752-36` / `Rainbird 702` → Rain Bird Head (`Head_Type`). With no brand (`702-32`, `5004 Rotor`), the brand comes from whichever head layer has that head type; if more than one does, the column is marked to check. `I20` counts every I-20 type. "Block" heads match only when the header says Block. Older Rainbird layers that put the nozzle in the head type (`752-20 F`) are handled too.
+- **Other Sprinklers / Other Heads:** every feature in that head layer that no other column counts. The layer is the brand named in the header, or the one most of the sheet's head columns use.
+- **Everything else:** the header is matched to a layer name (`Quick Coupler`, `Drain Valve`, `Drip Valve`, …), with a few synonyms (`Mainline Valve` → Isolation Valve, `QC`, `ARV`, `RCV`). A size like `8"` filters the layer's size dropdown (`08"`).
+- Columns marked **⚠ Check** are still counted (e.g. a nozzle that isn't in the map's list). Columns the tool can't place are **not counted** and left blank until the PM picks a layer. Spare columns with no material name are ignored.
 
 ## What's in this repo
 | File | Purpose |
 |---|---|
 | `Hole Summary Template.xlsx` | Blank sheet: **DESIGN TOTALS**, **STAKING TOTALS** (same layout; area and material names link to the design tab) and **MISC. CHANGES**. |
 | `index.html`, `js/`, `css/` | The site. Everything runs in the PM's browser; there's no server. |
+| `js/headers.js` | Reads the material headers and matches them to the web map's layers and dropdown lists. |
+| `js/review.js` | Step 4: the column table and the Change editor. |
 | `config.js` | The ArcGIS OAuth client ID and org portal URL. |
-| `js/mapping.js` | The standard column mapping (layer + filter for each material) and the hole-row rules. |
+| `js/mapping.js` | Counting rules, hole-row rules, and reading/writing the MAPPING tab. |
 | `js/xlsx.js` | Edits only the S cells inside the .xlsx and leaves styles, merges, formulas and other tabs untouched. Excel recalculates on open. |
-| `test/` | `index.html` runs the fill step with saved counts (`kettle-forge-fixture.json`). `ui.html` runs the whole real page against a fake ArcGIS (pretend sign-in, sample maps), so the UI can be clicked through without signing in. |
+| `test/`, `test-data/` | Saved layer setups and counts from Kettle Forge (Toro) and 2577 Amara (Rain Bird), plus a made-up Rain Bird sheet (`test-data/rainbird-test.xlsx`). `index.html` runs the fill step with them (`?xlsx=…&schema=amara-schema.json&fixture=amara-fixture.json`). `ui.html` runs the whole real page against a fake ArcGIS (pretend sign-in, sample maps), so the UI can be clicked through without signing in. |
 | `tools/dev_server.py` | Local server for testing (`python tools/dev_server.py`, then open http://localhost:8765). |
 | `Standardize_HoleNo.ipynb` | Brings older web maps up to the current template: adds a `HoleNo` field and the standard dropdown (`01–18, CH, SG, PG, CG, DR`) to every template layer, and adds it to the Field Maps forms. Run it with `DRY_RUN = True` first. |
 

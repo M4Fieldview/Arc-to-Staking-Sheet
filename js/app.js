@@ -1,7 +1,9 @@
-import { restoreSession, signIn, signOut, parseItemId, loadWebMap, groupedCounts, getUser, searchWebMaps, itemPageUrl, objectIdsFor } from "./arcgis.js";
+import { restoreSession, signIn, signOut, parseItemId, loadWebMap, layerSchemas, groupedCounts, getUser, searchWebMaps, itemPageUrl, objectIdsFor } from "./arcgis.js";
 import { fieldsByLayer } from "./mapping.js";
-import { prepareWorkbook, applyCounts, outputName } from "./sync.js";
+import { buildCatalog } from "./headers.js";
+import { prepareWorkbook, applyCounts, outputName, resolveMapping, toMapping, saveMapping } from "./sync.js";
 import { renderReport } from "./report.js";
+import { renderReview } from "./review.js";
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -11,6 +13,7 @@ const state = {
   webmap: null,                       // { id, title }
   scope: "org", searchTouched: false, searchSeq: 0, nextStart: -1,
   downloadUrl: null,
+  wm: null, catalog: null, review: null, reviewSeq: 0,   // the map's layers and what each column counts
 };
 
 function setStatus(id, html, isErr = false) {
@@ -24,8 +27,9 @@ function refresh() {
   $("step-map").classList.toggle("done", !!state.webmap);
   $("btn-signin").hidden = !!state.session;
   $("btn-signout").hidden = !state.session;
-  $("btn-sync").disabled = !(state.session && state.fileBytes && state.webmap);
-  $("btn-sync").title = !state.fileBytes ? "Upload your sheet first" : !state.webmap ? "Pick a web map first" : "";
+  $("step-columns").classList.toggle("disabled", !state.review);
+  $("btn-sync").disabled = !(state.session && state.fileBytes && state.webmap && state.review);
+  $("btn-sync").title = !state.fileBytes ? "Upload your sheet first" : !state.webmap ? "Pick a web map first" : !state.review ? "Reading the web map…" : "";
 }
 
 // ---------------- 1. Sign in ----------------
@@ -56,7 +60,8 @@ $("btn-signin").onclick = async () => {
 };
 $("btn-signout").onclick = () => {
   signOut();
-  Object.assign(state, { session: null, user: null, webmap: null });
+  Object.assign(state, { session: null, user: null, webmap: null, wm: null, catalog: null, review: null });
+  $("columns").innerHTML = "";
   $("map-list").innerHTML = "";
   $("selected").hidden = true;
   setStatus("signin-status", "Signed out.");
@@ -83,9 +88,10 @@ async function handleFile(f) {
     const where = !ctx.created ? "" : ctx.created.replaced
       ? ` It will replace the blank <strong>${esc(ctx.created.replaced)}</strong> tab, laid out like the design tab.`
       : " It will be added as a new tab, laid out like the design tab.";
-    setStatus("file-status", `Read the design from <strong>${esc(ctx.design.name)}</strong> (${holes} hole/area rows, ${ctx.mapping.length} material columns, using the ${ctx.mappingSource}). ` +
+    setStatus("file-status", `Read the design from <strong>${esc(ctx.design.name)}</strong> (${holes} hole/area rows, ${ctx.columns.length} material columns). ` +
       `Staked counts will go on the <strong>${esc(ctx.staking.name)}</strong> tab.${where}`);
     prefillSearch();
+    buildReview();
   } catch (e) {
     setStatus("file-status", `Couldn't read that sheet: ${esc(e.message)}`, true);
   }
@@ -162,6 +168,42 @@ function chooseMap(it) {
   $("selected").hidden = false;
   $("selected").innerHTML = `Selected: <strong>${esc(it.title)}</strong>`;
   setStatus("map-status", "");
+  state.wm = state.catalog = null;
+  refresh();
+  buildReview();
+}
+
+// ---------------- 4. What each column counts ----------------
+/** Reads the map's layers (once per map) and works out what each column of the sheet counts. */
+async function buildReview() {
+  state.review = null;
+  $("columns").innerHTML = "";
+  refresh();
+  if (!(state.session && state.fileBytes && state.webmap)) return;
+  const seq = ++state.reviewSeq;
+  const mapId = state.webmap.id;
+  try {
+    if (!state.wm || state.wm.id !== mapId) {
+      setStatus("sync-status", "Reading the web map…");
+      const wm = await loadWebMap(state.session, mapId);
+      const schemas = await layerSchemas(state.session, wm.layers, (d, n) => {
+        if (seq === state.reviewSeq) setStatus("sync-status", `Reading the map's layers and dropdown lists… ${d}/${n}`);
+      });
+      if (seq !== state.reviewSeq) return;
+      state.wm = { id: mapId, ...wm };
+      state.catalog = buildCatalog(schemas);
+    }
+    const ctx = await prepareWorkbook(state.fileBytes);
+    if (seq !== state.reviewSeq) return;
+    state.review = resolveMapping(ctx, state.catalog);
+    $("columns-hint").hidden = true;
+    const draw = () => renderReview($("columns"), state.review, state.catalog, refresh);
+    draw();
+    setStatus("sync-status", ctx.savedError ? `The sheet's saved MAPPING tab couldn't be read (${esc(ctx.savedError)}), so every column was worked out from its header again.` : "", !!ctx.savedError);
+  } catch (e) {
+    if (seq !== state.reviewSeq) return;
+    setStatus("sync-status", `Couldn't read that web map: ${esc(e.message)}`, true);
+  }
   refresh();
 }
 
@@ -195,11 +237,12 @@ $("btn-use-link").onclick = async () => {
 $("btn-sync").onclick = async () => {
   $("btn-sync").disabled = true;
   try {
-    setStatus("map-status", "Reading the web map…");
-    const wm = await loadWebMap(state.session, state.webmap.id);
+    const wm = state.wm;
     const ctx = await prepareWorkbook(state.fileBytes);   // fresh copy every run
+    ctx.mapping = toMapping(state.review);
     const needed = fieldsByLayer(ctx.mapping);
-    const warnings = [];
+    const warnings = state.review.filter((r) => r.skip || !r.layer).map((r) =>
+      `Column <strong>${esc(r.col)}</strong> (${esc(r.header || "no header")}) was left blank: no layer was picked for it in step 4.`);
     const rowsByLayer = {};
     let done = 0;
     await Promise.all(Object.entries(needed).map(async ([layer, fields]) => {
@@ -210,15 +253,16 @@ $("btn-sync").onclick = async () => {
       } catch (e) {
         warnings.push(`Couldn't count <strong>${esc(layer)}</strong>: ${esc(e.message)}.`);
       }
-      setStatus("map-status", `Counting staked features… ${++done}/${Object.keys(needed).length} layers`);
+      setStatus("sync-status", `Counting staked features… ${++done}/${Object.keys(needed).length} layers`);
     }));
     const result = applyCounts(ctx, rowsByLayer);
     // Look up the object IDs of anything flagged, so PMs can find those points in the map.
     const flagged = [...result.noHole, ...result.unmatched, ...result.noDesign, ...result.wrongHole];
-    if (flagged.length) setStatus("map-status", "Looking up flagged features…");
+    if (flagged.length) setStatus("sync-status", "Looking up flagged features…");
     await Promise.all(flagged.map(async (x) => {
       try { x.oids = await objectIdsFor(state.session, wm.layers[x.layer], x.attrs); } catch { /* list stays without IDs */ }
     }));
+    await saveMapping(ctx, state.review);
     const blob = await ctx.wb.toBlob();
     if (state.downloadUrl) URL.revokeObjectURL(state.downloadUrl);
     state.downloadUrl = URL.createObjectURL(blob);
@@ -228,11 +272,11 @@ $("btn-sync").onclick = async () => {
     $("result-note").textContent = `Staked counts are on the ${ctx.staking.name} tab · from "${wm.title}" · ${new Date().toLocaleString()}`;
     renderReport($("report"), result, warnings);
     $("step-result").hidden = false;
-    setStatus("map-status", `Done: ${esc(name)}`);
+    setStatus("sync-status", `Done: ${esc(name)}`);
     $("step-result").scrollIntoView({ behavior: "smooth" });
   } catch (e) {
     const expired = /token|498|499|not authorized/i.test(e.message);
-    setStatus("map-status", expired ? "Your ArcGIS sign-in expired or doesn't have access to that map. Sign out, sign in again, and retry." : `Something went wrong: ${esc(e.message)}`, true);
+    setStatus("sync-status", expired ? "Your ArcGIS sign-in expired or doesn't have access to that map. Sign out, sign in again, and retry." : `Something went wrong: ${esc(e.message)}`, true);
   } finally {
     refresh();
   }

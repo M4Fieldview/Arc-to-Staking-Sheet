@@ -1,28 +1,10 @@
 // Which ArcGIS layer + attribute filter feeds each sheet column, and how sheet rows map to HoleNo codes.
 import { nextCol } from "./xlsx.js";
 
-// Standard layout of the irrigation hole-summary template ("DESIGN TOTALS" tab).
-// `col` is the D (design) column of each material; S = the next column, +/- the one after.
-// Filters: field -> list of accepted values. `other: true` = every feature in that layer
-// that no other column for the same layer claimed.
-export const DEFAULT_MAPPING = [
-  { col: "C",  label: 'Toro INF34-33 Sprinkler',           layer: "Toro Head",        filter: { HeadType: ["INF34"], Nozzle: ["33"] } },
-  { col: "F",  label: 'Toro INF34-35 Sprinkler',           layer: "Toro Head",        filter: { HeadType: ["INF34"], Nozzle: ["35"] } },
-  { col: "I",  label: 'Toro INF35-35 Sprinkler',           layer: "Toro Head",        filter: { HeadType: ["INF35"], Nozzle: ["35"] } },
-  { col: "L",  label: 'Other Sprinklers',                  layer: "Toro Head",        other: true },
-  { col: "O",  label: 'Toro 474-01 Quick Coupler',         layer: "Quick Coupler",    filter: {} },
-  { col: "R",  label: 'Toro 1" Electric Valve',            layer: "Electric Valve",   filter: { Size: ['1"'] } },
-  { col: "U",  label: '12" Mainline Valve',                layer: "Isolation Valve",  filter: { Size: ['12"'] } },
-  { col: "X",  label: '10" Mainline Valve',                layer: "Isolation Valve",  filter: { Size: ['10"'] } },
-  { col: "AA", label: '8" Mainline Valve',                 layer: "Isolation Valve",  filter: { Size: ['08"', '8"'] } },
-  { col: "AD", label: '6" Mainline Valve',                 layer: "Isolation Valve",  filter: { Size: ['06"', '6"'] } },
-  { col: "AG", label: '4" Mainline Valve',                 layer: "Isolation Valve",  filter: { Size: ['04"', '4"'] } },
-  { col: "AJ", label: '3" Lateral Poly Valve',             layer: "Lateral Valve",    filter: { Size: ['3"'] } },
-  { col: "AM", label: '3" RW Drain Valve',                 layer: "Drain Valve",      filter: { Size: ['3"'] } },
-  { col: "AP", label: '2" Air Relief Valve',               layer: "Air Relief Valve", filter: {} },
-  { col: "AS", label: 'Hunter I20 temp Irrigation',        layer: "Hunter Head",      filter: { HeadType: ["I-20-04 Rotor", "I-20-06 Rotor"] } },
-  { col: "AV", label: '1.5" Electric Valve Temp Irrigation', layer: "Electric Valve", filter: { Size: ['1.5"'] } },
-];
+// Each mapping row: { col (the D column), label (its header), layer, filter: {field: [values]} }
+// or { ..., other: true } = every feature in that layer that no other column claimed.
+// The rows come from reading the headers (headers.js), or from the hidden MAPPING tab a past sync saved.
+export const NOT_COUNTED = "(not counted)";
 
 export const HOLE_FIELD = "HoleNo";
 export const HOLE_CODES = [...Array.from({ length: 18 }, (_, i) => String(i + 1).padStart(2, "0")), "CH", "SG", "PG", "CG", "DR"];
@@ -39,7 +21,7 @@ export function areaToHole(label) {
 }
 
 /**
- * Optional MAPPING tab in the workbook overrides the default. Layout (row 1 = headers):
+ * The hidden MAPPING tab saves what each column counted, so the next sync doesn't ask again. Layout (row 1 = headers):
  *   Column | Label | Layer | Filter
  *   C      | Toro INF34-33 | Toro Head | HeadType=INF34; Nozzle=33
  *   L      | Other Sprinklers | Toro Head | OTHER
@@ -60,6 +42,7 @@ export async function readMappingTab(wb) {
     const layer = get("layer");
     if (!col || !layer) continue;
     if (!/^[A-Z]{1,3}$/.test(col)) throw new Error(`MAPPING row ${r}: "${col}" is not a column letter.`);
+    if (layer.toLowerCase() === NOT_COUNTED) { out.push({ col, label: get("label"), skip: true }); continue; }
     out.push({ col, label: get("label") || col, layer, ...parseFilter(get("filter"), r) });
   }
   if (!out.length) throw new Error("The MAPPING tab has no rows.");
@@ -229,4 +212,11 @@ export function writeStaked(sheet, layout, mapping, counts, noHoleCounts = {}, d
 
 export function labelsFor(mapping) {
   return mapping.map((m) => ({ col: m.col, s: nextCol(m.col), label: m.label }));
+}
+
+/** The rows of the MAPPING tab for a mapping (the reverse of readMappingTab). */
+export function mappingTable(mapping) {
+  const filterText = (m) => m.other ? "OTHER" : Object.entries(m.filter || {}).map(([f, v]) => `${f}=${v.join("|")}`).join("; ") || "*";
+  return [["Column", "Label", "Layer", "Filter"],
+    ...mapping.map((m) => [m.col, m.label ?? "", m.skip || !m.layer ? NOT_COUNTED : m.layer, m.skip || !m.layer ? "" : filterText(m)])];
 }

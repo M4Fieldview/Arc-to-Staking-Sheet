@@ -1,6 +1,7 @@
 // The sheet side of a sync, kept free of ArcGIS calls so it can be tested with saved counts.
 import { openWorkbook, numToCol } from "./xlsx.js";
-import { DEFAULT_MAPPING, readMappingTab, findLayout, tally, writeStaked, classifyColumn } from "./mapping.js";
+import { readMappingTab, mappingTable, findLayout, tally, writeStaked, classifyColumn } from "./mapping.js";
+import { readColumns, matchColumns } from "./headers.js";
 
 export const DESIGN_TAB = "DESIGN TOTALS";
 export const STAKING_TAB = "STAKING TOTALS";
@@ -31,12 +32,36 @@ export async function prepareWorkbook(arrayBuffer) {
     created = { replaced: replace };
   }
   const stakingLayout = findLayout(staking);
-  const custom = await readMappingTab(wb);
-  return {
-    wb, design, layout, staking, stakingLayout, created,
-    mapping: custom || DEFAULT_MAPPING,
-    mappingSource: custom ? "MAPPING tab in this workbook" : "standard template mapping",
-  };
+  let saved = null, savedError = null;
+  try { saved = await readMappingTab(wb); } catch (e) { savedError = e.message; }
+  return { wb, design, layout, staking, stakingLayout, created, columns: readColumns(design, layout), saved, savedError, mapping: [] };
+}
+
+const sameText = (a, b) => String(a ?? "").replace(/\s+/g, " ").trim().toLowerCase() === String(b ?? "").replace(/\s+/g, " ").trim().toLowerCase();
+
+/**
+ * What each material column counts: the choice saved in the MAPPING tab by the last sync (if the
+ * header hasn't changed and the layer is in this map), otherwise worked out from the header.
+ * Returns review rows: { col, header, layer, filter | other, skip, status, note }.
+ */
+export function resolveMapping(ctx, catalog) {
+  const titles = new Set(catalog.map((l) => l.title));
+  return matchColumns(ctx.columns, catalog).map((m) => {
+    const s = ctx.saved?.find((x) => x.col === m.col);
+    if (!s || !sameText(s.label, m.header) || (!s.skip && !titles.has(s.layer))) return m;
+    return { col: m.col, header: m.header, layer: s.skip ? null : s.layer, filter: s.filter || {}, other: !!s.other, skip: !!s.skip,
+      status: "saved", note: "as chosen at the last sync" };
+  });
+}
+
+/** The review rows that count something, in the shape the sheet code uses. */
+export function toMapping(rows) {
+  return rows.filter((r) => r.layer && !r.skip).map((r) => ({ col: r.col, label: r.header || r.col, layer: r.layer, filter: r.filter || {}, other: !!r.other }));
+}
+
+/** Saves the review rows in the hidden MAPPING tab so the next sync starts from them. */
+export function saveMapping(ctx, rows) {
+  return ctx.wb.writeTable("MAPPING", mappingTable(rows.map((r) => ({ ...r, label: r.header }))));
 }
 
 /** Puts the counts into the S columns of the staking tab. rowsByLayer = { layerTitle: [{HoleNo, ..., n}] } */

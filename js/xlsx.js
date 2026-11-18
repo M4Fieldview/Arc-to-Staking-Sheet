@@ -178,39 +178,9 @@ class Workbook {
         this.zip.file("docProps/app.xml", text, { createFolders: false });
       }
     } else {
-      let n = 1;
-      while (this.zip.file(`xl/worksheets/sheet${n}.xml`)) n++;
-      path = `xl/worksheets/sheet${n}.xml`;
-      const relsDoc = parseXml(await this.zip.file("xl/_rels/workbook.xml.rels").async("string"));
-      const relRoot = relsDoc.documentElement;
-      const ids = [...relRoot.children].map((r) => Number(r.getAttribute("Id").replace(/\D/g, "")) || 0);
-      const rId = `rId${Math.max(0, ...ids) + 1}`;
-      const rel = relsDoc.createElementNS(relRoot.namespaceURI, "Relationship");
-      rel.setAttribute("Id", rId);
-      rel.setAttribute("Type", "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet");
-      rel.setAttribute("Target", `worksheets/sheet${n}.xml`);
-      relRoot.appendChild(rel);
-      this.zip.file("xl/_rels/workbook.xml.rels", serialize(relsDoc), { createFolders: false });
-
-      const ctDoc = parseXml(await this.zip.file("[Content_Types].xml").async("string"));
-      const ov = ctDoc.createElementNS(ctDoc.documentElement.namespaceURI, "Override");
-      ov.setAttribute("PartName", "/" + path);
-      ov.setAttribute("ContentType", "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml");
-      ctDoc.documentElement.appendChild(ov);
-      this.zip.file("[Content_Types].xml", serialize(ctDoc), { createFolders: false });
-
       const srcEl = sheetEls.find((e) => e.getAttribute("name") === sourceName);
       const index = sheetEls.indexOf(srcEl) + 1;
-      const el = this.wbDoc.createElementNS(NS, "sheet");
-      el.setAttribute("name", newName);
-      el.setAttribute("sheetId", String(Math.max(...sheetEls.map((e) => Number(e.getAttribute("sheetId")))) + 1));
-      el.setAttributeNS(RNS, "r:id", rId);
-      srcEl.parentNode.insertBefore(el, srcEl.nextSibling);
-      // Tab-specific names (print titles etc.) and the open tab point at tabs by position.
-      for (const dn of this.wbDoc.getElementsByTagNameNS(NS, "definedName")) {
-        const i = dn.getAttribute("localSheetId");
-        if (i !== null && Number(i) >= index) dn.setAttribute("localSheetId", String(Number(i) + 1));
-      }
+      path = await this._registerSheet(newName, index);
       // Give the copy the source tab's print titles / print area.
       for (const dn of [...this.wbDoc.getElementsByTagNameNS(NS, "definedName")]) {
         if (dn.getAttribute("localSheetId") !== String(index - 1) || !/^_xlnm\./.test(dn.getAttribute("name"))) continue;
@@ -219,11 +189,6 @@ class Workbook {
         copy.textContent = dn.textContent.split(quoted(sourceName)).join(quoted(newName));
         dn.parentNode.insertBefore(copy, dn.nextSibling);
       }
-      for (const v of this.wbDoc.getElementsByTagNameNS(NS, "workbookView")) {
-        const a = v.getAttribute("activeTab");
-        if (a !== null && Number(a) >= index) v.setAttribute("activeTab", String(Number(a) + 1));
-      }
-      this.sheetList.splice(index, 0, { name: newName, path });
     }
 
     // The calculation chain lists formula cells by tab; let Excel rebuild it.
@@ -243,6 +208,71 @@ class Workbook {
     sheet.dirty = true;
     this.loaded.set(path, sheet);
     return sheet;
+  }
+
+  /** Adds an empty worksheet part named `name` at tab position `index`; returns its path in the zip. */
+  async _registerSheet(name, index, { hidden = false } = {}) {
+    let n = 1;
+    while (this.zip.file(`xl/worksheets/sheet${n}.xml`)) n++;
+    const path = `xl/worksheets/sheet${n}.xml`;
+    const relsDoc = parseXml(await this.zip.file("xl/_rels/workbook.xml.rels").async("string"));
+    const relRoot = relsDoc.documentElement;
+    const ids = [...relRoot.children].map((r) => Number(r.getAttribute("Id").replace(/\D/g, "")) || 0);
+    const rId = `rId${Math.max(0, ...ids) + 1}`;
+    const rel = relsDoc.createElementNS(relRoot.namespaceURI, "Relationship");
+    rel.setAttribute("Id", rId);
+    rel.setAttribute("Type", "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet");
+    rel.setAttribute("Target", `worksheets/sheet${n}.xml`);
+    relRoot.appendChild(rel);
+    this.zip.file("xl/_rels/workbook.xml.rels", serialize(relsDoc), { createFolders: false });
+
+    const ctDoc = parseXml(await this.zip.file("[Content_Types].xml").async("string"));
+    const ov = ctDoc.createElementNS(ctDoc.documentElement.namespaceURI, "Override");
+    ov.setAttribute("PartName", "/" + path);
+    ov.setAttribute("ContentType", "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml");
+    ctDoc.documentElement.appendChild(ov);
+    this.zip.file("[Content_Types].xml", serialize(ctDoc), { createFolders: false });
+
+    const sheetEls = [...this.wbDoc.getElementsByTagNameNS(NS, "sheet")];
+    const el = this.wbDoc.createElementNS(NS, "sheet");
+    el.setAttribute("name", name);
+    el.setAttribute("sheetId", String(Math.max(...sheetEls.map((e) => Number(e.getAttribute("sheetId")))) + 1));
+    if (hidden) el.setAttribute("state", "hidden");
+    el.setAttributeNS(RNS, "r:id", rId);
+    const parent = sheetEls[0].parentNode;
+    parent.insertBefore(el, sheetEls[index] || null);
+    // Tab-specific names (print titles etc.) and the open tab point at tabs by position.
+    for (const dn of this.wbDoc.getElementsByTagNameNS(NS, "definedName")) {
+      const i = dn.getAttribute("localSheetId");
+      if (i !== null && Number(i) >= index) dn.setAttribute("localSheetId", String(Number(i) + 1));
+    }
+    for (const v of this.wbDoc.getElementsByTagNameNS(NS, "workbookView")) {
+      const a = v.getAttribute("activeTab");
+      if (a !== null && Number(a) >= index) v.setAttribute("activeTab", String(Number(a) + 1));
+    }
+    this.sheetList.splice(index, 0, { name, path });
+    return path;
+  }
+
+  /**
+   * Writes a simple text table to tab `name` (made hidden and last if it doesn't exist; its contents
+   * are replaced if it does). rows = [[text, ...], ...].
+   */
+  async writeTable(name, rows, { hidden = true } = {}) {
+    let info = this.sheetList.find((s) => s.name.toLowerCase() === name.toLowerCase());
+    const path = info ? info.path : await this._registerSheet(name, this.sheetList.length, { hidden });
+    const x = (t) => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const body = rows.map((r, i) => `<row r="${i + 1}">` + r.map((v, j) =>
+      `<c r="${numToCol(j + 1)}${i + 1}" t="inlineStr"><is><t xml:space="preserve">${x(v)}</t></is></c>`).join("") + "</row>").join("");
+    const widths = rows[0].map((_, j) => Math.min(60, Math.max(8, ...rows.map((r) => String(r[j] ?? "").length)) + 2));
+    const xml = XML_DECL + `<worksheet xmlns="${NS}"><cols>` + widths.map((w, j) => `<col min="${j + 1}" max="${j + 1}" width="${w}" customWidth="1"/>`).join("") +
+      `</cols><sheetData>${body}</sheetData></worksheet>`;
+    this.zip.file(path, xml, { createFolders: false });
+    this.loaded.delete(path);
+    if (info && hidden) {
+      const el = [...this.wbDoc.getElementsByTagNameNS(NS, "sheet")].find((e) => e.getAttribute("name") === info.name);
+      el.setAttribute("state", "hidden");
+    }
   }
 
   /** Returns a Blob of the patched workbook. Excel recalculates every formula when it's opened. */

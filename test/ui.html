@@ -22,8 +22,9 @@
     ["08c916b8b0d441138da407602c1cd40c", "2652 Lonnie Poole GC Staking"],
     ["ba1852ffe5ef41eaa31268163b9022e7", "2646 Overlook Golf Course Staking"],
   ].map(([id, title], i) => ({ id, title, type: "Web Map", owner: "Landscapes_Unlimited", modified: Date.now() - i * 864e5 * 3 }));
-  const LAYERS = ["Toro Head", "Hunter Head", "Quick Coupler", "Electric Valve", "Isolation Valve", "Lateral Valve", "Drain Valve", "Air Relief Valve"];
-  const fields = (layer) => ["OBJECTID", "HoleNo", "HeadType", "Nozzle", "Size"].map((name) => ({ name, type: name === "OBJECTID" ? "esriFieldTypeOID" : "esriFieldTypeString" }));
+  // Layer setups (fields + dropdown lists) saved from the real Kettle Forge map.
+  const SCHEMA = (await (await fetch("kettle-forge-schema.json")).json()).layers;
+  const LAYERS = Object.keys(SCHEMA);
   const fakeSession = { username: "test_pm", tokenExpires: new Date(Date.now() + 36e5), getUser: async () => ({ username: "test_pm", orgId: "ORG", favGroupId: "FAV" }), serialize: () => "{}" };
 
   window.APP_CONFIG = { clientId: "TEST", portal: "https://example.maps.arcgis.com/sharing/rest" };
@@ -47,7 +48,7 @@
         return m[2] ? { operationalLayers: LAYERS.map((t) => ({ title: t, layerType: "ArcGISFeatureLayer", url: "fake://" + t })) } : map;
       }
       m = /^fake:\/\/(.+?)(\/query)?$/.exec(url);
-      if (m && !m[2]) return { name: m[1], objectIdField: "OBJECTID", fields: fields(m[1]) };
+      if (m && !m[2]) return SCHEMA[m[1]];
       if (m && params.returnIdsOnly) {
         // Fake IDs: the fixture has counts only. Kettle Forge's real blank-HoleNo Toro head is 209.
         return { objectIdFieldName: "OBJECTID", objectIds: /HoleNo IS NULL/.test(params.where) ? [209] : [9001, 9002] };

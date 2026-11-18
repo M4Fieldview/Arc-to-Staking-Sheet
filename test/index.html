@@ -17,19 +17,24 @@
   <section class="step"><div class="status" id="status">Running…</div><div class="table-wrap" id="report"></div></section>
 </main>
 <script type="module">
-  import { prepareWorkbook, applyCounts, outputName } from "../js/sync.js";
+  import { prepareWorkbook, applyCounts, outputName, resolveMapping, toMapping, saveMapping } from "../js/sync.js";
+  import { buildCatalog } from "../js/headers.js";
   import { fieldsByLayer } from "../js/mapping.js";
   import { renderReport } from "../js/report.js";
 
   const p = new URLSearchParams(location.search);
   const xlsxPath = p.get("xlsx");
   const fixturePath = p.get("fixture") || "kettle-forge-fixture.json";
+  const schemaPath = p.get("schema") || "kettle-forge-schema.json";
   const status = document.getElementById("status");
   try {
     if (!xlsxPath) throw new Error("add ?xlsx=<path to workbook>");
     const bytes = await (await fetch(xlsxPath)).arrayBuffer();
     const fixture = await (await fetch(fixturePath)).json();   // { layerTitle: [{HoleNo, ..., n}] }
     const ctx = await prepareWorkbook(bytes);
+    const catalog = buildCatalog((await (await fetch(schemaPath)).json()).layers);
+    const review = resolveMapping(ctx, catalog);
+    ctx.mapping = toMapping(review);
     // Re-group the saved rows by exactly the fields a live query would use.
     const rowsByLayer = {};
     const warnings = [];
@@ -45,10 +50,11 @@
     }
     const result = applyCounts(ctx, rowsByLayer);
     renderReport(document.getElementById("report"), result, warnings);
+    await saveMapping(ctx, review);
     const blob = await ctx.wb.toBlob();
     const name = outputName(xlsxPath.split("/").pop());
     const saved = await fetch(`/__save?name=${encodeURIComponent(name)}`, { method: "POST", body: blob }).then((r) => r.ok ? r.text() : null).catch(() => null);
-    window.__result = { result, saved };
+    window.__result = { result, saved, review };
     status.textContent = saved ? `Saved ${saved}` : "Done (output not saved: dev server not running).";
   } catch (e) {
     status.textContent = "Failed: " + e.message;

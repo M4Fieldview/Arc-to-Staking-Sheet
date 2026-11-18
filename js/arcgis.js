@@ -80,6 +80,25 @@ export async function loadWebMap(session, itemId) {
 }
 
 /**
+ * Field lists (with dropdown values) of the map's layers: { title: layerJson }. A few at a time.
+ * Layers that can't be read are left out.
+ */
+export async function layerSchemas(session, layers, onProgress = () => {}) {
+  const entries = Object.entries(layers);
+  const out = {};
+  let next = 0, done = 0;
+  const worker = async () => {
+    while (next < entries.length) {
+      const [title, url] = entries[next++];
+      try { out[title] = await req(session, url); } catch { /* skipped */ }
+      onProgress(++done, entries.length);
+    }
+  };
+  await Promise.all(Array.from({ length: 8 }, worker));
+  return out;
+}
+
+/**
  * Count of features grouped by HoleNo + the given fields: one small query per layer.
  * Returns [{<field>: value, ..., n}] with the field names as the mapping wrote them.
  */

@@ -56,14 +56,21 @@
       </details>
     </div>
     <div class="selected" id="selected" hidden></div>
-    <div class="row sync-row">
-      <button id="btn-sync" disabled>Fill in staking totals</button>
-    </div>
     <div class="status" id="map-status"></div>
   </section>
 
+  <section class="step disabled" id="step-columns">
+    <h2><span class="n"><span>4</span></span> Check what each column will count</h2>
+    <p class="hint" id="columns-hint">Once your sheet and web map are picked, this shows what the tool found for each material column on your design tab.</p>
+    <div class="table-wrap" id="columns"></div>
+    <div class="row sync-row">
+      <button id="btn-sync" disabled>Fill in staking totals</button>
+    </div>
+    <div class="status" id="sync-status"></div>
+  </section>
+
   <section class="step" id="step-result" hidden>
-    <h2><span class="n"><span>4</span></span> Results</h2>
+    <h2><span class="n"><span>5</span></span> Results</h2>
     <div class="result-actions">
       <a class="btn" id="download" download>Download filled sheet</a>
       <span class="note" id="result-note"></span>
