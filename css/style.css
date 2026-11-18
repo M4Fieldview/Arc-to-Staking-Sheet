@@ -98,3 +98,4 @@ tr.editor td { background: var(--bg); }
 .edit-grid .fields { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .edit-grid label { display: flex; gap: 6px; align-items: center; font-size: .9rem; }
 .edit-grid select { max-width: 260px; }
+.callout { background: var(--warn-bg); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 8px 12px; margin: 10px 0 0; font-size: .95rem; }
