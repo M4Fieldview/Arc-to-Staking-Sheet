@@ -249,6 +249,15 @@ export function matchColumns(columns, catalog) {
     m.filter[nz] = [...m.filter[nz], BLANK];
     m.note = [m.note, `heads with no nozzle entered count here too (the only ${m.filter[ht].join(" / ")} column)`].filter(Boolean).join("; ");
   }
+  // Same idea for sizes: a valve with no size entered counts in the sheet's only column for that layer.
+  for (const m of out) {
+    if (m.isHead || m.other || m.status === "none" || !m.layer) continue;
+    const sz = catalog.find((l) => l.title === m.layer)?.sizeField?.name;
+    if (!sz || !m.filter?.[sz]) continue;
+    if (out.some((o) => o !== m && o.layer === m.layer)) continue;
+    m.filter[sz] = [...m.filter[sz], BLANK];
+    m.note = [m.note, `ones with no size entered count here too (the only ${m.layer} column)`].filter(Boolean).join("; ");
+  }
   return out;
 }
 

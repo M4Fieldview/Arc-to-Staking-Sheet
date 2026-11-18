@@ -64,7 +64,7 @@ export function renderReport(el, result, extraWarnings = []) {
       `They're listed below as having no row; change their HoleNo in Field Maps or add the counts by hand.`);
   }
   for (const b of result.blankAccepted || []) {
-    warn.push(`<strong>${b.n} under <em>${esc(b.label)}</em> had no ${esc(b.field)} entered.</strong> They were counted there because it's the sheet's only column for that head type.`);
+    warn.push(`<strong>${b.n} under <em>${esc(b.label)}</em> had no ${esc(b.field)} entered.</strong> They were counted there because it's the only column on the sheet they could go in.`);
   }
   for (const s of summary) {
     if (s.skipped) warn.push(`Column ${esc(s.col)} (${esc(s.label)}) was skipped: ${esc(s.skipped)}.`);

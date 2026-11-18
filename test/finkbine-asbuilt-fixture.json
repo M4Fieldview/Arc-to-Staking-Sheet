@@ -1,0 +1,1331 @@
+{
+ "Area Generic": [
+  {
+   "n": 29
+  }
+ ],
+ "Cart Path Area": [
+  {
+   "n": 24
+  }
+ ],
+ "Initial Disturbance": [
+  {
+   "n": 2
+  }
+ ],
+ "Native": [
+  {
+   "n": 57
+  }
+ ],
+ "Sod": [
+  {
+   "Hole_No": null,
+   "n": 26
+  },
+  {
+   "Hole_No": "04",
+   "n": 1
+  },
+  {
+   "Hole_No": "05",
+   "n": 2
+  },
+  {
+   "Hole_No": "09",
+   "n": 3
+  },
+  {
+   "Hole_No": "10",
+   "n": 1
+  },
+  {
+   "Hole_No": "11",
+   "n": 1
+  },
+  {
+   "Hole_No": "16",
+   "n": 1
+  },
+  {
+   "Hole_No": "18",
+   "n": 1
+  }
+ ],
+ "Fairway": [
+  {
+   "HoleNo": "02",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "n": 2
+  },
+  {
+   "HoleNo": "07",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "n": 2
+  },
+  {
+   "HoleNo": "11",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "n": 1
+  },
+  {
+   "HoleNo": "13",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "n": 1
+  },
+  {
+   "HoleNo": "16",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "n": 1
+  },
+  {
+   "HoleNo": "DR",
+   "n": 2
+  }
+ ],
+ "Fescue Sod": [
+  {
+   "esrignss_worst_fixtype": null,
+   "esrignss_profile_has_hor_xform": null,
+   "esrignss_h_95_status": null,
+   "esrignss_correction_source_type": null,
+   "n": 4
+  },
+  {
+   "esrignss_worst_fixtype": 1,
+   "esrignss_profile_has_hor_xform": null,
+   "esrignss_h_95_status": null,
+   "esrignss_correction_source_type": null,
+   "n": 2
+  },
+  {
+   "esrignss_worst_fixtype": 4,
+   "esrignss_profile_has_hor_xform": null,
+   "esrignss_h_95_status": null,
+   "esrignss_correction_source_type": null,
+   "n": 44
+  }
+ ],
+ "Bunker": [
+  {
+   "HoleNo": "01",
+   "LOP_Location": "A",
+   "Final_Shape": "No",
+   "n": 1
+  },
+  {
+   "HoleNo": "02",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "02",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "02",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "03",
+   "LOP_Location": "F",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 2
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "04",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "05",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "06",
+   "LOP_Location": "E",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": "E",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "07",
+   "LOP_Location": "F",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "LOP_Location": "E",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 2
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": "E",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "09",
+   "LOP_Location": "F",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "A",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "E",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "F",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "G",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "H",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "10",
+   "LOP_Location": "I",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "11",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "11",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "11",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": "E",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "12",
+   "LOP_Location": "F",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "13",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "13",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "13",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "14",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": "B",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": "C",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": "D",
+   "Final_Shape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": "E",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "15",
+   "LOP_Location": "F",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "C",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "17",
+   "LOP_Location": "D",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "18",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "18",
+   "LOP_Location": "B",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "Teaching",
+   "LOP_Location": "A",
+   "Final_Shape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "Teaching",
+   "LOP_Location": "B",
+   "Final_Shape": "No",
+   "n": 1
+  }
+ ],
+ "Green": [
+  {
+   "Final_Shape": "No",
+   "HoleNo": "03",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "04",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "05",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "06",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "07",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "08",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "09",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "10",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "12",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "13",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "15",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "16",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "17",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "Clubhouse Putting",
+   "Type": "Clubhouse Putting",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "Teaching chipping",
+   "Type": "Teaching Chipping",
+   "n": 1
+  },
+  {
+   "Final_Shape": "No",
+   "HoleNo": "Teaching putting",
+   "Type": "Teaching Putting",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "01",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "01",
+   "Type": "Putting Green",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "02",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "11",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "14",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "18",
+   "Type": " ",
+   "n": 1
+  },
+  {
+   "Final_Shape": "Yes",
+   "HoleNo": "Nursey",
+   "Type": "Nursery",
+   "n": 1
+  }
+ ],
+ "Tee": [
+  {
+   "HoleNo": " ",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "01",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 5
+  },
+  {
+   "HoleNo": "02",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 5
+  },
+  {
+   "HoleNo": "03",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 5
+  },
+  {
+   "HoleNo": "04",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "05",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "06",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "07",
+   "Type": null,
+   "FinalShape": "Yes",
+   "n": 1
+  },
+  {
+   "HoleNo": "08",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "09",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "10",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "11",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "12",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 2
+  },
+  {
+   "HoleNo": "13",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "15",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 4
+  },
+  {
+   "HoleNo": "16",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 1
+  },
+  {
+   "HoleNo": "16",
+   "Type": null,
+   "FinalShape": "Yes",
+   "n": 4
+  },
+  {
+   "HoleNo": "17",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 3
+  },
+  {
+   "HoleNo": "DR",
+   "Type": null,
+   "FinalShape": " ",
+   "n": 5
+  }
+ ],
+ "Bunker Island": [
+  {
+   "IslandNumber": " ",
+   "n": 8
+  },
+  {
+   "IslandNumber": "1",
+   "n": 2
+  },
+  {
+   "IslandNumber": "2",
+   "n": 1
+  },
+  {
+   "IslandNumber": "3",
+   "n": 1
+  },
+  {
+   "IslandNumber": "7",
+   "n": 1
+  },
+  {
+   "IslandNumber": "8",
+   "n": 2
+  }
+ ],
+ "Solid Drainage Pipe": [
+  {
+   "Size": "12\"",
+   "Type": null,
+   "n": 15
+  },
+  {
+   "Size": "18\"",
+   "Type": null,
+   "n": 1
+  },
+  {
+   "Size": "24\"",
+   "Type": null,
+   "n": 6
+  },
+  {
+   "Size": "4\"",
+   "Type": null,
+   "n": 201
+  },
+  {
+   "Size": "6\"",
+   "Type": null,
+   "n": 45
+  },
+  {
+   "Size": "8\"",
+   "Type": null,
+   "n": 28
+  },
+  {
+   "Size": "4\"",
+   "Type": "HDPE",
+   "n": 1
+  }
+ ],
+ "Silt Fence": [
+  {
+   "n": 161
+  }
+ ],
+ "Lateral": [
+  {
+   "Size": "2\"",
+   "Material": null,
+   "n": 358
+  },
+  {
+   "Size": "3\"",
+   "Material": null,
+   "n": 79
+  },
+  {
+   "Size": "2\"",
+   "Material": "HDPE",
+   "n": 43
+  },
+  {
+   "Size": "3\"",
+   "Material": "HDPE",
+   "n": 3
+  }
+ ],
+ "Line Generic": [
+  {
+   "n": 25
+  }
+ ],
+ "Mainline": [
+  {
+   "Type": null,
+   "Pipe_Size": "04\"",
+   "n": 5
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "04\"",
+   "n": 1
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "06\"",
+   "n": 17
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "06\"",
+   "n": 4
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "08\"",
+   "n": 60
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "08\"",
+   "n": 6
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "10\"",
+   "n": 5
+  },
+  {
+   "Type": "HDPE",
+   "Pipe_Size": "10\"",
+   "n": 2
+  },
+  {
+   "Type": null,
+   "Pipe_Size": "12\"",
+   "n": 6
+  }
+ ],
+ "Perf Drainage Pipe": [
+  {
+   "Size": " ",
+   "Type": null,
+   "n": 1
+  },
+  {
+   "Size": "4\"",
+   "Type": null,
+   "n": 1041
+  },
+  {
+   "Size": "6\"",
+   "Type": null,
+   "n": 3
+  }
+ ],
+ "Cart Path Centerline": [
+  {
+   "Width": " ",
+   "n": 26
+  },
+  {
+   "Width": "6'",
+   "n": 1
+  }
+ ],
+ "Wire Trench": [
+  {
+   "n": 22
+  }
+ ],
+ "Power Wire": [
+  {
+   "Size": null,
+   "n": 6
+  },
+  {
+   "Size": "#8",
+   "n": 1
+  }
+ ],
+ "Basin": [
+  {
+   "Size": "12\"",
+   "n": 44
+  },
+  {
+   "Size": "18\"",
+   "n": 6
+  },
+  {
+   "Size": "24\"",
+   "n": 17
+  },
+  {
+   "Size": "30\"",
+   "n": 2
+  },
+  {
+   "Size": "32\"",
+   "n": 2
+  }
+ ],
+ "Lateral Valve": [
+  {
+   "Size": "3\"",
+   "n": 84
+  }
+ ],
+ "Air Relief Valve": [
+  {
+   "n": 6
+  }
+ ],
+ "Daylight": [
+  {
+   "n": 13
+  }
+ ],
+ "Wire Splice": [
+  {
+   "Type": " ",
+   "n": 7
+  },
+  {
+   "Type": "Power",
+   "n": 6
+  },
+  {
+   "Type": "Signal",
+   "n": 2
+  }
+ ],
+ "Flushout": [
+  {
+   "n": 22
+  }
+ ],
+ "Isolation Valve": [
+  {
+   "Size": "04\"",
+   "n": 2
+  },
+  {
+   "Size": "06\"",
+   "n": 14
+  },
+  {
+   "Size": "08\"",
+   "n": 24
+  },
+  {
+   "Size": "10\"",
+   "n": 3
+  },
+  {
+   "Size": "12\"",
+   "n": 2
+  }
+ ],
+ "Quick Coupler": [
+  {
+   "QCV_Size": "1\"",
+   "n": 56
+  }
+ ],
+ "Ground Plate": [
+  {
+   "n": 29
+  }
+ ],
+ "Satellite": [
+  {
+   "Stations": null,
+   "n": 3
+  }
+ ],
+ "Toro Head": [
+  {
+   "HeadType": "INF34",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 7
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": null,
+   "HoleNo": "01",
+   "n": 22
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": null,
+   "HoleNo": "02",
+   "n": 70
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": null,
+   "HoleNo": "04",
+   "n": 1
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": null,
+   "HoleNo": "18",
+   "n": 54
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": "34",
+   "HoleNo": null,
+   "n": 830
+  },
+  {
+   "HeadType": "INF34",
+   "Nozzle": "35",
+   "HoleNo": null,
+   "n": 1
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": null,
+   "HoleNo": null,
+   "n": 42
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": null,
+   "HoleNo": "01",
+   "n": 3
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": null,
+   "HoleNo": "02",
+   "n": 3
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": null,
+   "HoleNo": "18",
+   "n": 2
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": "33",
+   "HoleNo": null,
+   "n": 1
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": "34",
+   "HoleNo": null,
+   "n": 158
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": "35",
+   "HoleNo": null,
+   "n": 47
+  },
+  {
+   "HeadType": "INF35",
+   "Nozzle": "35",
+   "HoleNo": "02",
+   "n": 1
+  }
+ ],
+ "Point Generic": [
+  {
+   "n": 180
+  }
+ ],
+ "Point of Connection": [
+  {
+   "n": 44
+  }
+ ],
+ "Drain Valve": [
+  {
+   "Size": null,
+   "n": 2
+  },
+  {
+   "Size": "2\"",
+   "n": 4
+  }
+ ],
+ "Existing": [
+  {
+   "n": 3373
+  }
+ ],
+ "Points": [
+  {
+   "n": 6805
+  }
+ ],
+ "Bury Pit ": [
+  {
+   "esrignss_worst_fixtype": 4,
+   "n": 23
+  }
+ ],
+ "Mulch ": [
+  {
+   "esrignss_worst_fixtype": 1,
+   "n": 1
+  },
+  {
+   "esrignss_worst_fixtype": 4,
+   "n": 4
+  }
+ ],
+ "Wash Box": [
+  {
+   "esrignss_positionsourcetype": 1,
+   "esrignss_fixtype": null,
+   "n": 4
+  },
+  {
+   "esrignss_positionsourcetype": 5,
+   "esrignss_fixtype": null,
+   "n": 11
+  },
+  {
+   "esrignss_positionsourcetype": 3,
+   "esrignss_fixtype": 4,
+   "n": 57
+  }
+ ],
+ "Fescue Slit Seeding": [
+  {
+   "esrignss_worst_fixtype": null,
+   "n": 1
+  },
+  {
+   "esrignss_worst_fixtype": 4,
+   "n": 4
+  },
+  {
+   "esrignss_worst_fixtype": 5,
+   "n": 1
+  }
+ ],
+ "Curlex": [
+  {
+   "n": 16
+  }
+ ]
+}

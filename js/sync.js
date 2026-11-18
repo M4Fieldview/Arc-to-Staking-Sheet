@@ -107,6 +107,18 @@ export function applyCounts(ctx, rowsByLayer) {
     }));
     if (could.length > 1 && blanks.size) x.couldBe = { fields: [...blanks], labels: could.map((m) => m.label) };
   }
+  // One line per kind of feature, not one per HoleNo.
+  const merged = new Map();
+  const unmatchedOut = [];
+  for (const x of unmatched) {
+    if (!x.couldBe) { unmatchedOut.push(x); continue; }
+    const attrs = Object.fromEntries(Object.entries(x.attrs).filter(([k]) => k.toLowerCase() !== "holeno"));
+    const key = x.layer + JSON.stringify(attrs);
+    if (merged.has(key)) { merged.get(key).n += x.n; continue; }
+    const y = { ...x, attrs };
+    merged.set(key, y);
+    unmatchedOut.push(y);
+  }
 
   // Features counted even though a field was blank (e.g. no nozzle, on the sheet's only column for that head type).
   const blankAccepted = {};
@@ -122,7 +134,7 @@ export function applyCounts(ctx, rowsByLayer) {
 
   // Bring the saved +/- and TOTAL results up to date (Protected View doesn't recalculate).
   const recalc = staking.recalc();
-  return { summary, noHole, unmatched, noDesign, wrongHole, recalc, guesses, ambiguous, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
+  return { summary, noHole, unmatched: unmatchedOut, noDesign, wrongHole, recalc, guesses, ambiguous, blankAccepted: Object.values(blankAccepted), skippedRows: stakingLayout.rows.filter((r) => !r.hole).map((r) => r.label) };
 }
 
 /**
